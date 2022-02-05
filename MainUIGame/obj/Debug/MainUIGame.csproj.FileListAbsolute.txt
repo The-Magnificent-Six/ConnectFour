@@ -1,0 +1,11 @@
+E:\itilabs\C#\ConnectFour\MainUIGame\obj\Debug\MainUIGame.csproj.AssemblyReference.cache
+E:\itilabs\C#\ConnectFour\MainUIGame\obj\Debug\MainUIGame.Login.resources
+E:\itilabs\C#\ConnectFour\MainUIGame\obj\Debug\MainUIGame.Properties.Resources.resources
+E:\itilabs\C#\ConnectFour\MainUIGame\obj\Debug\MainUIGame.csproj.GenerateResource.cache
+E:\itilabs\C#\ConnectFour\MainUIGame\obj\Debug\MainUIGame.csproj.CoreCompileInputs.cache
+E:\itilabs\C#\ConnectFour\MainUIGame\bin\Debug\MainUIGame.exe.config
+E:\itilabs\C#\ConnectFour\MainUIGame\bin\Debug\MainUIGame.exe
+E:\itilabs\C#\ConnectFour\MainUIGame\bin\Debug\MainUIGame.pdb
+E:\itilabs\C#\ConnectFour\MainUIGame\obj\Debug\MainUIGame.exe
+E:\itilabs\C#\ConnectFour\MainUIGame\obj\Debug\MainUIGame.pdb
+E:\itilabs\C#\ConnectFour\MainUIGame\obj\Debug\MainUIGame.FormT.resources
