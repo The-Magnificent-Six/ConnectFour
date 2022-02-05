@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace ConnectFourServer
 {
-    class Room
+    class Spectator:User
     {
-        Board board;
-        Player[] players;
-        List<Spectator> spectators;
 
     }
 }

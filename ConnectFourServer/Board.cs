@@ -15,6 +15,7 @@ namespace ConnectFourServer
         {
             matrix = new int[rows, columns];
         }
+
         private bool checkWinCondition(int x, int y)
         {
             return false;
