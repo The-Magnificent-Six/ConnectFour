@@ -13,6 +13,7 @@ namespace MainUIGame
     public partial class Form1 : Form
     {
         int x;
+        int y;
         public Form1()
         {
             InitializeComponent();
