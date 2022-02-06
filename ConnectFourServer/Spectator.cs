@@ -8,6 +8,16 @@ namespace ConnectFourServer
 {
     class Spectator:User
     {
+        public Spectator(Socket s,NetworkStream net ,String name):base(s,net ,name)
+        {
+
+        }
+
+
+        public void sendPlayerXWon(Player p)
+        {
+            
+        }
 
     }
 }

@@ -11,6 +11,25 @@ namespace ConnectFourServer
     {
         Socket socket;
         NetworkStream networkStream;
+        String UserName;
+
+        public User(Socket s,NetworkStream net ,String name)
+        {
+            socket = s;
+            networkStream = net;
+            UserName = name;
+        }
+
+        public void SendMoveToUser(int x,int y,int PlayerTokenColor)
+        {
+
+        }
+
+        public void sendRoomInitialDetails(Room r)
+        {
+
+        }
+
 
     }
 }
