@@ -16,14 +16,14 @@ namespace ConnectFourServer
             matrix = new int[rows, columns];
         }
 
-        private bool checkWinCondition(int x, int y)
+        private bool checkWinCondition(int x, int y, int TokenColor)
         {
             return false;
         }
         public bool play(int x, int y , int TokenColor)
         {
             matrix[x,y] = TokenColor;
-            return !checkWinCondition(x, y);
+            return checkWinCondition(x, y,TokenColor);
         }
     }
 }
