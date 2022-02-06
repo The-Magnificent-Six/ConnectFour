@@ -12,7 +12,7 @@ namespace ConnectFourServer
     {
         Room room;
         int tokencolor;//must be different player ID
-        public int TokenColor { get => TokenColor;}
+        public int TokenColor { get => tokencolor; }
 
         public Player(Socket s,NetworkStream net ,String name,int tokenColor,Room r):base(s,net ,name)
         {
