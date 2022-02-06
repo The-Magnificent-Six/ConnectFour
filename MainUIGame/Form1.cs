@@ -14,6 +14,8 @@ namespace MainUIGame
     {
         int x;
         int y;
+        int roomcount;
+        
         public string lb
         {
             get { return label1.Text; }
@@ -23,80 +25,46 @@ namespace MainUIGame
         {
             InitializeComponent();
             this.WindowState = FormWindowState.Maximized;
-            x = 31;
-             y = 100;
-            
+            x = 150;
+            y = 150;
+            roomcount = 4;
+
+
+
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //if (x == 600)
-            //{ x = 31; y += 320; }
-
-            Panel newPanel = new Panel();
-                newPanel.Location = new System.Drawing.Point(x, y);
-                newPanel.BackColor = Color.Beige;
-                newPanel.Name = "panel2";
-                newPanel.Size = new System.Drawing.Size(200, 200);
-                newPanel.TabIndex = 5;
-                this.Controls.Add(newPanel);
-            x += 235;
-
-            
-
-
-            Button newButton = new Button();
-            newButton.Text = "join";
-            newButton.BackColor = Color.White;
-            newButton.Location = new System.Drawing.Point(80, 150);
-            newButton.Click += NewButton_Click;
-            newPanel.Controls.Add(newButton);
-
-            ListBox newlistbox = new ListBox();
-            newlistbox.FormattingEnabled = true;
-            newlistbox.ItemHeight = 20;
-            newlistbox.Location = new System.Drawing.Point(40, 20);
-            newlistbox.Name = "lnewlistbox";
-            newlistbox.Size = new System.Drawing.Size(120, 84);
-            newlistbox.TabIndex = 4;
-            newPanel.Controls.Add(newlistbox);
-
-
-
-        }
-
-        private void NewButton_Click(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            for(int i = 0; i<4;i++)
+            if (roomcount < 10)
             {
                 Panel newPanel = new Panel();
                 newPanel.Location = new System.Drawing.Point(x, y);
-                newPanel.BackColor = Color.Beige;
+                newPanel.BackColor = Color.Transparent;
                 newPanel.Name = "panel2";
-                newPanel.Size = new System.Drawing.Size(200, 200);
+                newPanel.Size = new System.Drawing.Size(100, 150);
                 newPanel.TabIndex = 5;
+                newPanel.BorderStyle = BorderStyle.None;
                 this.Controls.Add(newPanel);
                 x += 235;
 
-
+                if (x >= this.Width - 200)
+                { x -= (this.Width - 200); y += 230; }
 
 
                 Button newButton = new Button();
                 newButton.Text = "join";
-                newButton.BackColor = Color.White;
-                newButton.Location = new System.Drawing.Point(80, 150);
-                newButton.Click += NewButton_Click;
+                newButton.BackColor = Color.DarkSlateGray;
+                newButton.Location = new System.Drawing.Point(20, 100);
+                newButton.Size = new System.Drawing.Size(60, 30);
+                newButton.Click += NewButton_Click2;
                 newPanel.Controls.Add(newButton);
+
                 Label newlabel = new Label();
                 newlabel.AutoSize = true;
                 newlabel.Location = new System.Drawing.Point(5, 5);
                 newlabel.Name = "newlabel";
                 newlabel.Size = new System.Drawing.Size(20, 20);
+                newlabel.ForeColor = Color.White;
                 newlabel.TabIndex = 1;
                 newlabel.Text = "Room players";
                 newPanel.Controls.Add(newlabel);
@@ -104,18 +72,89 @@ namespace MainUIGame
                 ListBox newlistbox = new ListBox();
                 newlistbox.FormattingEnabled = true;
                 newlistbox.ItemHeight = 20;
-                newlistbox.Location = new System.Drawing.Point(40, 20);
+                newlistbox.Location = new System.Drawing.Point(0, 20);
                 newlistbox.Name = "lnewlistbox";
-                newlistbox.Size = new System.Drawing.Size(120, 84);
+                newlistbox.Size = new System.Drawing.Size(120, 100);
+                newlistbox.BackColor = Color.DarkBlue;
                 newlistbox.TabIndex = 4;
+
+
+                newPanel.Controls.Add(newlistbox);
+
+                roomcount++;
+                //MessageBox.Show(roomcount.ToString());
+
+            }
+            else { MessageBox.Show("sorry can't create more rooms"); }
+        }
+
+        private void NewButton_Click2(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
+        }
+
+
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            for (int i = 0; i < 4; i++)
+            {
+                Panel newPanel = new Panel();
+                newPanel.Location = new System.Drawing.Point(x, y);
+                newPanel.BackColor = Color.Transparent;
+                newPanel.Name = "panel2";
+                newPanel.Size = new System.Drawing.Size(100, 150);
+                newPanel.TabIndex = 5;
+                this.Controls.Add(newPanel);
+                x += 235;
+                if (x >= this.Width - 200)
+                { x -= (this.Width - 200); y += 230; }
+
+
+
+
+                Button newButton = new Button();
+                newButton.Text = "join";
+                newButton.BackColor = Color.DarkSlateGray;
+                newButton.Location = new System.Drawing.Point(20, 100);
+                newButton.Size = new System.Drawing.Size(60, 30);
+                newButton.Click += NewButton_Click1; ;
+                newPanel.Controls.Add(newButton);
+
+                Label newlabel = new Label();
+                newlabel.AutoSize = true;
+                newlabel.Location = new System.Drawing.Point(5, 5);
+                newlabel.Name = "newlabel";
+                newlabel.Size = new System.Drawing.Size(50, 50);
+                newlabel.TabIndex = 1;
+                newlabel.Text = "Room players";
+                newlabel.ForeColor = Color.White;
+
+                newPanel.Controls.Add(newlabel);
+
+                ListBox newlistbox = new ListBox();
+                newlistbox.FormattingEnabled = true;
+                newlistbox.ItemHeight = 20;
+                newlistbox.Location = new System.Drawing.Point(0, 20);
+                newlistbox.Name = "lnewlistbox";
+                newlistbox.Size = new System.Drawing.Size(120, 100);
+                newlistbox.TabIndex = 4;
+                newlistbox.BackColor = Color.DarkBlue;
 
                 newPanel.Controls.Add(newlistbox);
             }
+        }
+
+        private void NewButton_Click1(object sender, EventArgs e)
+        {
+            //throw new NotImplementedException();
         }
 
         private void Form1_Resize(object sender, EventArgs e)
         {
             Invalidate();
         }
+
+
     }
 }
