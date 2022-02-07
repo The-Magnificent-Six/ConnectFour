@@ -15,7 +15,11 @@ namespace MainUIGame
         int x;
         int y;
         int roomcount;
-        ListBox newlistbox;
+        Button[] newButton = new Button[100];
+        ListBox[] newlistbox = new ListBox[100];
+        int j = 0;
+
+        // ListBox newlistbox;
 
 
         public string lb
@@ -40,7 +44,7 @@ namespace MainUIGame
         {
             if (roomcount < 10)
             {
-                int j = 1;
+                
                 Panel newPanel = new Panel();
                 newPanel.Location = new System.Drawing.Point(x, y);
                 newPanel.BackColor = Color.Transparent;
@@ -54,14 +58,15 @@ namespace MainUIGame
                 if (x >= this.Width - 200)
                 { x -= (this.Width - 200); y += 230; }
 
-
-                Button newButton = new Button();
-                newButton.Text = "join";
-                newButton.BackColor = Color.DarkSlateGray;
-                newButton.Location = new System.Drawing.Point(20, 100);
-                newButton.Size = new System.Drawing.Size(60, 30);
-                newButton.Click += NewButton_Click2;
-                newPanel.Controls.Add(newButton);
+                EventArgs n;
+                newButton[j] = new Button();
+                newButton[j].Text = "join";
+                newButton[j].BackColor = Color.DarkSlateGray;
+                newButton[j].Location = new System.Drawing.Point(20, 100);
+                newButton[j].Size = new System.Drawing.Size(60, 30);
+                newButton[j].Click += NewButton_Click2;
+                newButton[j].TabIndex = j;
+                newPanel.Controls.Add(newButton[j]);
 
                 Label newlabel = new Label();
                 newlabel.AutoSize = true;
@@ -74,19 +79,20 @@ namespace MainUIGame
                 newPanel.Controls.Add(newlabel);
 
                 
-                newlistbox = new ListBox();
-                newlistbox.FormattingEnabled = true;
-                newlistbox.ItemHeight = 20;
-                newlistbox.Location = new System.Drawing.Point(0, 20);
-                newlistbox.Name = "lnewlistbox";
-                newlistbox.Size = new System.Drawing.Size(120, 100);
-                newlistbox.BackColor = Color.DarkBlue;
-                newlistbox.TabIndex = 4;
+                newlistbox[j] = new ListBox();
+                newlistbox[j].FormattingEnabled = true;
+                newlistbox[j].ItemHeight = 20;
+                newlistbox[j].Location = new System.Drawing.Point(0, 20);
+                newlistbox[j].Name = "lnewlistbox";
+                newlistbox[j].Size = new System.Drawing.Size(120, 100);
+                newlistbox[j].BackColor = Color.DarkBlue;
+                newlistbox[j].TabIndex = j;
 
 
-                newPanel.Controls.Add(newlistbox);
+                newPanel.Controls.Add(newlistbox[j]);
 
                 roomcount++;
+                j++;
                 //MessageBox.Show(roomcount.ToString());
 
             }
@@ -95,8 +101,10 @@ namespace MainUIGame
 
         private void NewButton_Click2(object sender, EventArgs e)
         {
-           this.newlistbox.Items.Add("player1");
-            MessageBox.Show(this.ToString());
+            Button btn = (Button)sender;
+
+           newlistbox[btn.TabIndex].Items.Add("player1");
+            
 
         }
 
@@ -104,58 +112,58 @@ namespace MainUIGame
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            int j = 1;
-            for (int i = 0; i < 4; i++)
-            {
-                Panel newPanel = new Panel();
-                newPanel.Location = new System.Drawing.Point(x, y);
-                newPanel.BackColor = Color.Transparent;
-                newPanel.Name = "panel2";
-                newPanel.Size = new System.Drawing.Size(100, 150);
-                newPanel.TabIndex = 5;
-                this.Controls.Add(newPanel);
-                x += 235;
-                if (x >= this.Width - 200)
-                { x -= (this.Width - 200); y += 230; }
+            //int j = 1;
+            //for (int i = 0; i < 4; i++)
+            //{
+            //    Panel newPanel = new Panel();
+            //    newPanel.Location = new System.Drawing.Point(x, y);
+            //    newPanel.BackColor = Color.Transparent;
+            //    newPanel.Name = "panel2";
+            //    newPanel.Size = new System.Drawing.Size(100, 150);
+            //    newPanel.TabIndex = 5;
+            //    this.Controls.Add(newPanel);
+            //    x += 235;
+            //    if (x >= this.Width - 200)
+            //    { x -= (this.Width - 200); y += 230; }
 
 
 
 
-                Button newButton = new Button();
-                newButton.Text = "join";
-                newButton.BackColor = Color.DarkSlateGray;
-                newButton.Location = new System.Drawing.Point(20, 100);
-                newButton.Size = new System.Drawing.Size(60, 30);
-                newButton.Click += NewButton_Click1; ;
-                newPanel.Controls.Add(newButton);
+            //    Button newButton = new Button();
+            //    newButton.Text = "join";
+            //    newButton.BackColor = Color.DarkSlateGray;
+            //    newButton.Location = new System.Drawing.Point(20, 100);
+            //    newButton.Size = new System.Drawing.Size(60, 30);
+            //    newButton.Click += NewButton_Click1; ;
+            //    newPanel.Controls.Add(newButton);
 
-                Label newlabel = new Label();
-                newlabel.AutoSize = true;
-                newlabel.Location = new System.Drawing.Point(5, 5);
-                newlabel.Name = "newlabel";
-                newlabel.Size = new System.Drawing.Size(50, 50);
-                newlabel.TabIndex = 1;
-                newlabel.Text = "Room players";
-                newlabel.ForeColor = Color.White;
+            //    Label newlabel = new Label();
+            //    newlabel.AutoSize = true;
+            //    newlabel.Location = new System.Drawing.Point(5, 5);
+            //    newlabel.Name = "newlabel";
+            //    newlabel.Size = new System.Drawing.Size(50, 50);
+            //    newlabel.TabIndex = 1;
+            //    newlabel.Text = "Room players";
+            //    newlabel.ForeColor = Color.White;
 
-                newPanel.Controls.Add(newlabel);
+            //    newPanel.Controls.Add(newlabel);
 
-                newlistbox = new ListBox();
-                newlistbox.FormattingEnabled = true;
-                newlistbox.ItemHeight = 20;
-                newlistbox.Location = new System.Drawing.Point(0, 20);
-                newlistbox.Name = "lnewlistbox";
-                newlistbox.Size = new System.Drawing.Size(120, 100);
-                newlistbox.TabIndex = 4;
-                newlistbox.BackColor = Color.DarkBlue;
+            //    newlistbox = new ListBox();
+            //    newlistbox.FormattingEnabled = true;
+            //    newlistbox.ItemHeight = 20;
+            //    newlistbox.Location = new System.Drawing.Point(0, 20);
+            //    newlistbox.Name = "lnewlistbox";
+            //    newlistbox.Size = new System.Drawing.Size(120, 100);
+            //    newlistbox.TabIndex = 4;
+            //    newlistbox.BackColor = Color.DarkBlue;
 
-                newPanel.Controls.Add(newlistbox);
-            }
+            //    newPanel.Controls.Add(newlistbox);
+            //}
         }
 
         private void NewButton_Click1(object sender, EventArgs e)
         {
-            this.newlistbox.Items.Add("player1");
+            //this.newlistbox.Items.Add("player1");
         }
 
         private void Form1_Resize(object sender, EventArgs e)
