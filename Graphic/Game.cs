@@ -1,8 +1,4 @@
-﻿//==================================================
-// Tyler Sriver
-// Connect 4 - Game Class
-// October 31, 2014
-//==================================================
+﻿
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
