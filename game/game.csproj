@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <AnalysisLevel>5.0</AnalysisLevel>
+  </PropertyGroup>
+
+  <!--<ItemGroup>
+    <Compile Include="C:\Users\sab3awy\Desktop\gggame.cs" Link="gggame.cs" />
+  </ItemGroup>-->
+
+</Project>

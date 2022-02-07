@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.32106.194
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MainUIGame", "MainUIGame\MainUIGame.csproj", "{9A1B2E7D-8320-409A-8651-A94E2B5565C8}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "game", "game\game.csproj", "{756AE21E-C7D2-41A1-9668-14F19CC6F1A9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{9A1B2E7D-8320-409A-8651-A94E2B5565C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9A1B2E7D-8320-409A-8651-A94E2B5565C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9A1B2E7D-8320-409A-8651-A94E2B5565C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{756AE21E-C7D2-41A1-9668-14F19CC6F1A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{756AE21E-C7D2-41A1-9668-14F19CC6F1A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{756AE21E-C7D2-41A1-9668-14F19CC6F1A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{756AE21E-C7D2-41A1-9668-14F19CC6F1A9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
