@@ -29,6 +29,7 @@ namespace MainUIGame
             this.WindowState = FormWindowState.Maximized;
             x = 150;
             y = 150;
+            //int z;
             roomcount = 4;
 
 
