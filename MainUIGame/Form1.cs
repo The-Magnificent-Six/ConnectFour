@@ -15,7 +15,9 @@ namespace MainUIGame
         int x;
         int y;
         int roomcount;
-        
+        ListBox newlistbox;
+
+
         public string lb
         {
             get { return label1.Text; }
@@ -37,6 +39,7 @@ namespace MainUIGame
         {
             if (roomcount < 10)
             {
+                int j = 1;
                 Panel newPanel = new Panel();
                 newPanel.Location = new System.Drawing.Point(x, y);
                 newPanel.BackColor = Color.Transparent;
@@ -69,7 +72,8 @@ namespace MainUIGame
                 newlabel.Text = "Room players";
                 newPanel.Controls.Add(newlabel);
 
-                ListBox newlistbox = new ListBox();
+                
+                newlistbox = new ListBox();
                 newlistbox.FormattingEnabled = true;
                 newlistbox.ItemHeight = 20;
                 newlistbox.Location = new System.Drawing.Point(0, 20);
@@ -90,13 +94,16 @@ namespace MainUIGame
 
         private void NewButton_Click2(object sender, EventArgs e)
         {
-            //throw new NotImplementedException();
+           this.newlistbox.Items.Add("player1");
+            MessageBox.Show(this.ToString());
+
         }
 
 
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            int j = 1;
             for (int i = 0; i < 4; i++)
             {
                 Panel newPanel = new Panel();
@@ -132,7 +139,7 @@ namespace MainUIGame
 
                 newPanel.Controls.Add(newlabel);
 
-                ListBox newlistbox = new ListBox();
+                newlistbox = new ListBox();
                 newlistbox.FormattingEnabled = true;
                 newlistbox.ItemHeight = 20;
                 newlistbox.Location = new System.Drawing.Point(0, 20);
@@ -147,7 +154,7 @@ namespace MainUIGame
 
         private void NewButton_Click1(object sender, EventArgs e)
         {
-            //throw new NotImplementedException();
+            this.newlistbox.Items.Add("player1");
         }
 
         private void Form1_Resize(object sender, EventArgs e)
