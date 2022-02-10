@@ -23,6 +23,7 @@ namespace game
             Form1.col = int.Parse(Cols.Text);
             Form1.row = int.Parse(Rows.Text);
             Form1 form = new Form1();
+            form.WindowState = FormWindowState.Maximized;
             form.Show();
         }
 
