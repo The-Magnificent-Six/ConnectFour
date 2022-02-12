@@ -12,7 +12,7 @@ namespace MainUIGame
 {
     public partial class Form1 : Form
     {
-        int x;
+        int x;//2eih lazmetha
         public Form1()
         {
             InitializeComponent();
