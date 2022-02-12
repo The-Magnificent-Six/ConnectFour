@@ -16,7 +16,9 @@ namespace MainUIGame
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            //Application.Run(new Lobby());
+            //Application.Run(new Login());
+            Application.Run(new dialog());
         }
     }
 }
