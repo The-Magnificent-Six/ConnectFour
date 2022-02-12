@@ -11,13 +11,31 @@ namespace ConnectFourServer
     {
         Socket socket;
         NetworkStream networkStream;
+        public NetworkStream netStream { get => networkStream;}
+        public Socket Socket { get => socket; }
         String UserName;
+        public string name { get => UserName; }
 
-        public User(Socket s,NetworkStream net ,String name)
+
+        public User(Socket s)
         {
             socket = s;
-            networkStream = net;
+            buildStream();
+            networkInitialize();
+        }
+        public networkInitialize()
+        {
+            // the comm protocol
+            
+        }
+
+        public void setName(string name)
+        {
             UserName = name;
+        }
+        public void buildStream()
+        {
+            networkStream= new NetworkStream(socket);
         }
 
         public void SendMoveToUser(int x,int y,int PlayerTokenColor)
@@ -29,7 +47,15 @@ namespace ConnectFourServer
         {
 
         }
-
+        public void sendRooms()
+        {
+            BinaryWriter bw = new BinaryWriter( netStream );
+            bw.Write(Program.rooms.Count);
+            foreach (Room r in Program.rooms)
+            {
+                sendRoomInitialDetails(r);
+            }
+        }
 
     }
 }

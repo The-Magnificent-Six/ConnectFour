@@ -3,17 +3,45 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Net;   
+using System.Net.Sockets; 
 
 namespace ConnectFourServer
 {
     class Program
     {
-        List<Room> room = new List<Room>(); 
+        TcpListener server;
+        static List<Room> rooms = new List<Room>(); 
+
+        
+
         static void Main(string[] args)
         {
             //have a tcpServer that sendes available rooms on connection
             //then wait for a flag response of either new room , join room , spectate 
             //followed by the op details
+
+            Byte[] bt = new byte[] {127,0,0,1 };
+            IPAddress localHost = new IPAddress(bt);
+            server = new TcpListener(localHost, 3000);
+            server.Start(); 
+
+            Task.Factory.StartNew( () =>{ 
+
+                while (true)
+                {
+                    Socket socketConnection = server.AcceptSocket();
+
+                    Task.Factory.StartNew( (socketConnection_) =>{
+                        
+                        User nUser = new User(socketConnection_);
+
+                    },socketConnection );
+                    
+                } 
+
+            } );
+
         }
     }
 }

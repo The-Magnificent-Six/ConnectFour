@@ -9,6 +9,7 @@ namespace ConnectFourServer
     class Room
     {
         Board board;
+        String roomName;
         Player[] players;
         public Player[] Players { get => players; }
         List<Spectator> spectators;
