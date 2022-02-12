@@ -14,10 +14,20 @@ namespace ConnectFourServer
         int tokencolor;//must be different player ID
         public int TokenColor { get => tokencolor; }
 
-        public Player(Socket s,NetworkStream net ,String name,int tokenColor,Room r):base(s,net ,name)
+        public Player(Socket s):base(s){}
+        public Player(User u):base(u.Socket)
+        {
+            this.setName(u.name);
+            this.networkStream = u.netStream;
+        }
+
+        public void setToken( int tokenColor)
+        {
+            tokencolor = tokenColor;
+        }
+        public void setRoom( Room r )
         {
             room = r;
-            tokencolor = tokenColor;
         }
 
         public void sendWinToPlayer()
