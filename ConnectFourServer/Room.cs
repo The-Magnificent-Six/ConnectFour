@@ -10,12 +10,14 @@ namespace ConnectFourServer
     {
         Board board;
         String roomName;
+        public String name { get; }
         Player[] players;
         public Player[] Players { get => players; }
         List<Spectator> spectators;
-
-        public Room(int boardRows , int boardCols , Player p)
+        public List<Spectator> Spectators { get => spectators; }
+        public Room(string rName, int boardRows , int boardCols , Player p)
         {
+            roomName = rName;
             board = new Board(boardRows,boardCols);
             players = new Player[2];
             players[0] = p;
@@ -51,14 +53,18 @@ namespace ConnectFourServer
                 spectator.SendMoveToUser(x,y,p.TokenColor);
             }
         }
+        public bool isPlayersIncomplete()
+        {
+            return (players[1] == null);
+        }
 
         public void addPlayer(Player p)
         {
-            if(players[1] == null)
+            if(isPlayersIncomplete())
             {
                 players[1] = p;
-                //players[1].room = this;
-                p.sendRoomInitialDetails(this);
+                players[1].room = this;
+                //p.sendRoomDetails(this);
             }
             else
             {
@@ -68,7 +74,7 @@ namespace ConnectFourServer
         public void addSpectator(Spectator s)
         {
             spectators.Add(s);
-            s.sendRoomInitialDetails(this);
+            //s.sendRoomDetails(this);
         }
 
     }

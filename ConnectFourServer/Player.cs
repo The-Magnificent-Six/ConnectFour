@@ -10,7 +10,7 @@ namespace ConnectFourServer
     
     class Player : User 
     {
-        Room room;
+        public Room room;
         int tokencolor;//must be different player ID
         public int TokenColor { get => tokencolor; }
 

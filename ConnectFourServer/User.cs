@@ -22,11 +22,40 @@ namespace ConnectFourServer
         {
             socket = s;
             buildStream();
-            networkInitialize();
+            networkController();
         }
-        public void networkInitialize()
+        public void networkController()
         {
             // the comm protocol
+            BinaryReader reader = new BinaryReader(networkStream);
+            while(true)
+            {
+                while(networkStream.CanRead)
+                {
+                    commOp op = (commOp)reader.Read();
+                    switch (op)
+                    {
+                        case commOp.availRoomsReq:
+                            sendRooms();
+                            break;
+                        case commOp.createRoomReq:
+                            
+                            // comon' do sth
+                            break;
+
+                        case commOp.joinRoomAsPlayer:
+                            // comon' do sth
+                            break;
+                        case commOp.joinRoomAsSpectator:
+                            //join room as a spectator
+                            
+                            // comon' do sth
+                            break;
+                        default :
+                            throw new Exception("sth went horribly wrong XD");
+                    }
+                }
+            }
             
         }
 
@@ -44,17 +73,33 @@ namespace ConnectFourServer
 
         }
 
-        public void sendRoomInitialDetails(Room r)
+        public void sendRoomDetails(Room r)
         {
+            BinaryWriter bw = new BinaryWriter(netStream);
+            bw.Write(r.name);
+            if (r.isPlayersIncomplete())
+            {
+                bw.Write(1);//num of players in room
+                bw.Write(r.Players[0].TokenColor);
+            }
+            else
+            {
+                bw.Write(2); // num of players in room
+            }
+            bw.Write(r.Spectators.Count);
 
         }
         public void sendRooms()
         {
             BinaryWriter bw = new BinaryWriter( netStream );
+            
+            bw.Write( (int)commOp.roomsResp );
+            
             bw.Write(Program.rooms.Count);
+            
             foreach (Room r in Program.rooms)
             {
-                sendRoomInitialDetails(r);
+                sendRoomDetails(r);
             }
         }
 

@@ -26,11 +26,13 @@ namespace ConnectFourServer
             server = new TcpListener(localHost, 3000);
             server.Start(); 
 
-            Task.Factory.StartNew( () =>{ 
+            Task serverTask = Task.Factory.StartNew( () =>{ 
 
                 while (true)
                 {
+                    Console.WriteLine("waiting for a connection");
                     Socket socketConnection = server.AcceptSocket();
+                    Console.WriteLine("connecting ..");
 
                     Task.Factory.StartNew( (socketConnection_) =>{
                         
@@ -41,6 +43,8 @@ namespace ConnectFourServer
                 } 
 
             } );
+            Task.WaitAll(serverTask);
+            
 
         }
     }
