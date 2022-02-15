@@ -8,11 +8,13 @@ namespace ConnectFourServer
 {
     class Board
     {
-        int[,] matrix;
-        //int rows, columns;
+        public int[,] matrix;
+        public int rows, columns;
 
         public Board(int rows, int columns)
         {
+            this.rows = rows;
+            this.columns = columns; 
             matrix = new int[rows, columns];
         }
 

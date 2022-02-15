@@ -8,12 +8,12 @@ namespace ConnectFourServer
 {
     class Room
     {
-        Board board;
+        public Board board;
         String roomName;
         public String name { get; }
         Player[] players;
         public Player[] Players { get => players; }
-        List<Spectator> spectators;
+        List<Spectator> spectators = new List<Spectator>() ;
         public List<Spectator> Spectators { get => spectators; }
         public Room(string rName, int boardRows , int boardCols , Player p)
         {
