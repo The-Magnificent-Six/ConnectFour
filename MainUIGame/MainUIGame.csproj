@@ -47,19 +47,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
     <Compile Include="CreateDialog.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="CreateDialog.Designer.cs">
       <DependentUpon>CreateDialog.cs</DependentUpon>
-=======
+      </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
->>>>>>> 1a7d1075044eda4077d613e97a80a095c5b40255
     </Compile>
     <Compile Include="dialogcs.cs">
       <SubType>Form</SubType>
@@ -76,7 +74,6 @@
     <Compile Include="OpEnum.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-<<<<<<< HEAD
     <Compile Include="tokencolor.cs" />
     <Compile Include="User.cs" />
     <EmbeddedResource Include="CreateDialog.resx">
@@ -87,11 +84,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Lobby.resx">
       <DependentUpon>Lobby.cs</DependentUpon>
-=======
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
->>>>>>> 1a7d1075044eda4077d613e97a80a095c5b40255
-    </EmbeddedResource>
+      </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -116,7 +112,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
     <None Include="Resources\images %281%29.jpg" />
   </ItemGroup>
   <ItemGroup>
@@ -169,7 +164,6 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
-=======
     <None Include="Resources\LogoC4.png" />
   </ItemGroup>
   <ItemGroup>
@@ -177,7 +171,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\user.png" />
->>>>>>> 1a7d1075044eda4077d613e97a80a095c5b40255
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
