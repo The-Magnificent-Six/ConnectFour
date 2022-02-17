@@ -28,12 +28,12 @@ namespace ConnectFourServer
                 if(networkStream.CanRead)
                 {
                     BinaryReader reader = new BinaryReader(networkStream);
-                    commOp op = (commOp) reader.Read();
+                    commOp op = (commOp) int.Parse( reader.ReadString());
                     if(op == commOp.playerMoveReq)
                     {
-                        int x = reader.Read();
-                        int y = reader.Read();
-                        int TokenColor = reader.Read();
+                        int x = int.Parse( reader.ReadString());
+                        int y = int.Parse( reader.ReadString());
+                        int TokenColor = int.Parse( reader.ReadString());
                         if (!room.makeAMove(x,y,this))
                         {
                             if(this == room.Players[0] )
@@ -47,7 +47,7 @@ namespace ConnectFourServer
                     else
                     {
                         BinaryWriter writer = new BinaryWriter(networkStream);
-                        sendError($"received {(int)op} instead of move Request");
+                        sendError($"received {op} instead of move Request");
                     }
                     return;
                 }
@@ -65,13 +65,13 @@ namespace ConnectFourServer
         public void sendWinToPlayer()
         {
             BinaryWriter bw = new BinaryWriter(netStream);
-            bw.Write((int)commOp.winLoss);
+            bw.Write(((int)commOp.winLoss).ToString());
             bw.Write("Veni, Vidi, Vici");
         }
         public void sendLossToPlayer()
         {
             BinaryWriter bw = new BinaryWriter(netStream);
-            bw.Write((int)commOp.winLoss);
+            bw.Write(((int)commOp.winLoss).ToString());
             bw.Write("you were outmatched sir");
         }
     }

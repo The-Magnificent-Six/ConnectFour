@@ -32,7 +32,7 @@ namespace ConnectFourServer
             {
                 if(networkStream.CanRead)
                 {
-                    commOp op = (commOp)reader.Read();
+                    commOp op = (commOp)int.Parse( reader.ReadString());
                     switch (op)
                     {
                         case commOp.availRoomsReq:
@@ -42,9 +42,9 @@ namespace ConnectFourServer
 
                         case commOp.createRoomReq:
                             
-                            int tokenColor_ = reader.Read();
-                            int rows_= reader.Read();   
-                            int cols_= reader.Read();
+                            int tokenColor_ = int.Parse( reader.ReadString());
+                            int rows_= int.Parse( reader.ReadString());
+                            int cols_= int.Parse( reader.ReadString());
                             string roomName_ = reader.ReadString();
                             string playerName_ = reader.ReadString();
                             bool roomNameUnique = true;
@@ -56,7 +56,7 @@ namespace ConnectFourServer
                             if ( roomNameUnique )
                             {
                                 BinaryWriter writer = new BinaryWriter(networkStream);  
-                                writer.Write((int)commOp.accept);
+                                writer.Write(((int)commOp.accept).ToString());
                                 Player p1 = new Player(this);
                                 p1.setName(playerName_);
                                 p1.setToken(tokenColor_);
@@ -71,7 +71,7 @@ namespace ConnectFourServer
 
 
                         case commOp.joinRoomAsPlayer:
-                            int tokenColor2_ = reader.Read();
+                            int tokenColor2_ = int.Parse( reader.ReadString());
                             string player2Name_ = reader.ReadString();
                             string room2Name_ = reader.ReadString();
 
@@ -141,7 +141,7 @@ namespace ConnectFourServer
         private void sendError(string v)
         {
             BinaryWriter bw = new BinaryWriter(netStream);
-            bw.Write((int)commOp.error);
+            bw.Write(((int)commOp.error).ToString());
             bw.Write(v);
         }
 
@@ -157,10 +157,10 @@ namespace ConnectFourServer
         public void SendMoveToUser(int x,int y,int PlayerTokenColor)
         {
             BinaryWriter bw = new BinaryWriter(netStream);
-            bw.Write((int)commOp.playerMoveReq);
-            bw.Write(x);
-            bw.Write(y);
-            bw.Write(PlayerTokenColor);
+            bw.Write(((int)commOp.playerMoveReq).ToString());
+            bw.Write(x.ToString());
+            bw.Write(y.ToString());
+            bw.Write(PlayerTokenColor.ToString());
         }
 
         public void sendRoomDetails(Room r)
@@ -169,23 +169,23 @@ namespace ConnectFourServer
             bw.Write(r.name);
             if (r.isPlayersIncomplete())
             {
-                bw.Write(1);//num of players in room
-                bw.Write(r.Players[0].TokenColor);
+                bw.Write("1");//num of players in room
+                bw.Write(r.Players[0].TokenColor.ToString());
             }
             else
             {
-                bw.Write(2); // num of players in room
+                bw.Write("2"); // num of players in room
             }
-            bw.Write(r.Spectators.Count);
+            bw.Write(r.Spectators.Count.ToString());
 
         }
         public void sendRooms()
         {
             BinaryWriter bw = new BinaryWriter( netStream );
             
-            bw.Write( (int)commOp.roomsResp );
+            bw.Write( ((int)commOp.roomsResp).ToString() );
             
-            bw.Write(Program.rooms.Count);
+            bw.Write(Program.rooms.Count.ToString());
             
             foreach (Room r in Program.rooms)
             {

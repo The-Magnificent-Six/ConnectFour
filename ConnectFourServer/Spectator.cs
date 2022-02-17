@@ -23,19 +23,19 @@ namespace ConnectFourServer
         {
             BinaryWriter writer = new BinaryWriter(networkStream);
 
-            writer.Write((int)commOp.WholeBoard);
+            writer.Write(((int)commOp.WholeBoard).ToString());
 
-            writer.Write(room.Players[0].name);
-            writer.Write(room.Players[0].TokenColor);
-            writer.Write(room.Players[1].name);
-            writer.Write(room.Players[1].TokenColor);
-            writer.Write(room.board.rows);
-            writer.Write(room.board.columns);
+            writer.Write(room.Players[0].name.ToString());
+            writer.Write(room.Players[0].TokenColor.ToString());
+            writer.Write(room.Players[1].name.ToString());
+            writer.Write(room.Players[1].TokenColor.ToString());
+            writer.Write(room.board.rows.ToString());
+            writer.Write(room.board.columns.ToString());
             for (int i = 0; i < room.board.rows; i++)
             {
                 for (int j = 0; j < room.board.columns; j++)
                 {
-                    writer.Write( room.board.matrix[i,j] );
+                    writer.Write( room.board.matrix[i,j].ToString() );
                 }
             }
         }
@@ -43,7 +43,7 @@ namespace ConnectFourServer
         public void sendPlayerXWon(Player p)
         {
             BinaryWriter writer = new BinaryWriter(networkStream);
-            writer.Write((int)commOp.winLoss);
+            writer.Write(((int)commOp.winLoss).ToString());
             writer.Write($"Player {p.name} won ");
         }
 

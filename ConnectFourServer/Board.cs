@@ -20,44 +20,83 @@ namespace ConnectFourServer
 
         private bool checkWinCondition(int x, int y, int TokenColor,int connect = 4)
         {
-            int i,j;
-            if(rows - x > connect )
+            int i,j,count = -1;
+            
+            //horizontal
+            for(i = x ; i < rows; i ++)
             {
-                for(i = x; i < x+connect ; i++)
-                {
-                    if( matrix[i,y] != TokenColor )
-                    {
-                        break;
-                    }
-
-                }
-                if( i == x+connect )
-                    return true;
-                
-            }
-            if(x > connect)
-            {
-                for( i = x; i > x-connect; i--)
-                {
-                    if( matrix[i,y] != TokenColor )
-                    {
-                        break;
-                    }
-                }
-                if( i == x-connect )
-                    return true;
-            }
-
-            if( y > connect )
-            {
-                for( j = y; j > y-connect ; j-- )
-                {
+                if(matrix[i,y] == TokenColor)
+                    count++;
+                else
                     break;
-                }
-                //if()
             }
-
-
+            for(i = x ; i >= 0 ; i--)
+            {
+                if(matrix[i,y] == TokenColor)
+                    count++;
+                else
+                    break;
+            }
+            if (count >= connect)
+                return true;
+            
+            //vertical
+            count = -1;
+            for(j=y;j<columns;j++)
+            {
+                if(matrix[x,j] == TokenColor)
+                    count++;
+                else
+                    break;
+            }
+            for(j=y;j>=0;j--)
+            {
+                if(matrix[x,j] == TokenColor)
+                    count++;
+                else
+                    break;
+            }
+            if (count >= connect)
+                return true;
+            
+            //positive slope
+            count = -1;
+            for(i=x,j=y;i<rows&&j<columns;i++,j++)
+            {
+                if(matrix[i,j] == TokenColor)
+                    count++;
+                else
+                    break;
+            }
+            for(i=x,j=y;i>=0&&j>=0;i--,j--)
+            {
+                if(matrix[i,j] == TokenColor)
+                    count++;
+                else
+                    break;
+            }
+            if (count >= connect)
+                return true;
+            
+            //negative slope
+            count = -1;
+            for(i=x,j=y;i<rows&&j>=0;i++,j--)
+            {
+                if(matrix[i,j] == TokenColor)
+                    count++;
+                else
+                    break;
+            }
+            for(i=x,j=y;i>=0&&j<columns;i--,j++)
+            {
+                if(matrix[i,j] == TokenColor)
+                    count++;
+                else
+                    break;
+            }
+            if (count >= connect)
+                return true;
+                
             return false;
         }
         public bool play(int x, int y , int TokenColor)
