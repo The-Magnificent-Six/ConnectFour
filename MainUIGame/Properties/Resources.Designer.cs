@@ -63,9 +63,15 @@ namespace MainUIGame.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+<<<<<<< HEAD
         internal static System.Drawing.Bitmap download {
             get {
                 object obj = ResourceManager.GetObject("download", resourceCulture);
+=======
+        internal static System.Drawing.Bitmap _lock {
+            get {
+                object obj = ResourceManager.GetObject("lock", resourceCulture);
+>>>>>>> 1a7d1075044eda4077d613e97a80a095c5b40255
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +79,15 @@ namespace MainUIGame.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+<<<<<<< HEAD
         internal static System.Drawing.Bitmap download__1_ {
             get {
                 object obj = ResourceManager.GetObject("download (1)", resourceCulture);
+=======
+        internal static System.Drawing.Bitmap LogoC4 {
+            get {
+                object obj = ResourceManager.GetObject("LogoC4", resourceCulture);
+>>>>>>> 1a7d1075044eda4077d613e97a80a095c5b40255
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,6 +95,7 @@ namespace MainUIGame.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+<<<<<<< HEAD
         internal static System.Drawing.Bitmap download__3_ {
             get {
                 object obj = ResourceManager.GetObject("download (3)", resourceCulture);
@@ -226,6 +239,11 @@ namespace MainUIGame.Properties {
         internal static System.Drawing.Bitmap WhatsApp_Image_2022_02_06_at_11_234 {
             get {
                 object obj = ResourceManager.GetObject("WhatsApp Image 2022-02-06 at 11.234", resourceCulture);
+=======
+        internal static System.Drawing.Bitmap user {
+            get {
+                object obj = ResourceManager.GetObject("user", resourceCulture);
+>>>>>>> 1a7d1075044eda4077d613e97a80a095c5b40255
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

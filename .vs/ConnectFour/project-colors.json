@@ -1,0 +1,16 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    },
+    "9a1b2e7d-8320-409a-8651-a94e2b5565c8": {
+      "ProjectGuid": "9a1b2e7d-8320-409a-8651-a94e2b5565c8",
+      "DisplayName": "MainUIGame",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}

@@ -16,9 +16,13 @@ namespace MainUIGame
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+<<<<<<< HEAD
            // Application.Run(new Lobby());
             Application.Run(new Login());
             //Application.Run(new dialog());
+=======
+            Application.Run(new Login());
+>>>>>>> 1a7d1075044eda4077d613e97a80a095c5b40255
         }
     }
 }
