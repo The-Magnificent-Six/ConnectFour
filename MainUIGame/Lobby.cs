@@ -129,7 +129,7 @@ namespace MainUIGame
                   
                         n++;
                         GameBoard gb = new GameBoard(cdlg.RomeName, cdlg.RowNo, cdlg.ColNo);
-                        gb.turn = 2;
+                        gb.turn= 2;
                         gb.setHostColor = cdlg.TokenCol;
                         gb.show();
 

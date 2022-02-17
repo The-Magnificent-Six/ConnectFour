@@ -30,3 +30,6 @@ C:\Users\Waad\Desktop\ConnectFour-20220212T131230Z-001\ConnectFour\MainUIGame\ob
 C:\Users\Waad\Desktop\ConnectFour-20220212T131230Z-001\ConnectFour\MainUIGame\obj\Debug\MainUIGame.csproj.CoreCompileInputs.cache
 C:\Users\Waad\Desktop\ConnectFour-20220212T131230Z-001\ConnectFour\MainUIGame\obj\Debug\MainUIGame.exe
 C:\Users\Waad\Desktop\ConnectFour-20220212T131230Z-001\ConnectFour\MainUIGame\obj\Debug\MainUIGame.pdb
+C:\Users\Waad\Desktop\ConnectFour-20220212T131230Z-001\ConnectFour\MainUIGame\obj\Debug\MainUIGame.CreateDialog.resources
+C:\Users\Waad\Desktop\ConnectFour-20220212T131230Z-001\ConnectFour\MainUIGame\obj\Debug\MainUIGame.dialog.resources
+C:\Users\Waad\Desktop\ConnectFour-20220212T131230Z-001\ConnectFour\MainUIGame\obj\Debug\MainUIGame.Lobby.resources

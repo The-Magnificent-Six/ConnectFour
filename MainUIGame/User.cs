@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 using System.Net.Sockets;
 using System.Net;
 using System.IO;
+using System.Drawing;
 
 namespace MainUIGame
 {
-   public class User
-   {
+    public class User
+    {
         public NetworkStream ns;
         public string username;
         public tokencolor userColor;
@@ -20,10 +21,11 @@ namespace MainUIGame
         public byte[] bt = new byte[] { 127, 0, 0, 1 };
         private IPAddress serverIP;
         static User instance = null;
+        
         private User()
         {
             serverIP = new IPAddress(bt);
-            client.Connect(serverIP,3000);
+            client.Connect(serverIP, 3000);
             ns = client.GetStream();
             BR = new BinaryReader(ns);
             BW = new BinaryWriter(ns);
@@ -34,8 +36,15 @@ namespace MainUIGame
             {
                 instance = new User();
             }
-            return instance;   
+            return instance;
         }
+      
+     
 
-    }
-}
+    };
+
+        }
+       
+    
+  
+    
