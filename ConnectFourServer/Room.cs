@@ -21,16 +21,17 @@ namespace ConnectFourServer
             board = new Board(boardRows,boardCols);
             players = new Player[2];
             players[0] = p;
-            //players[0].room = this;
+            players[0].room = this;
             players[1] = null;
         }
 
-        public void makeAMove(int x , int y,Player p)
+        public bool makeAMove(int x , int y,Player p)
         {
             bool someOneWon = board.play(x,y,p.TokenColor);
             broadcastMove(x,y,p);
             if(someOneWon)
                 broadcastWin(p);
+            return someOneWon;
         }
 
         void broadcastWin(Player p)
@@ -60,16 +61,17 @@ namespace ConnectFourServer
 
         public void addPlayer(Player p)
         {
-            if(isPlayersIncomplete())
-            {
-                players[1] = p;
-                players[1].room = this;
+            players[1] = p;
+            // if(isPlayersIncomplete())
+            // {
+                // players[1] = p;
+                // players[1].room = this;
                 //p.sendRoomDetails(this);
-            }
-            else
-            {
+            // }
+            // else
+            // {
 
-            }
+            // }
         }
         public void addSpectator(Spectator s)
         {

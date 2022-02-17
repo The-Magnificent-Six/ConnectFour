@@ -94,7 +94,7 @@ namespace ConnectFourServer
                                 p2.setToken(tokenColor2_);
                                 p2.setRoom(r_);
                                 r_.addPlayer(p2);
-
+                                p2.WaitForMove();
                                 return;
                             }
 
@@ -156,7 +156,11 @@ namespace ConnectFourServer
 
         public void SendMoveToUser(int x,int y,int PlayerTokenColor)
         {
-
+            BinaryWriter bw = new BinaryWriter(netStream);
+            bw.Write((int)commOp.playerMoveReq);
+            bw.Write(x);
+            bw.Write(y);
+            bw.Write(PlayerTokenColor);
         }
 
         public void sendRoomDetails(Room r)

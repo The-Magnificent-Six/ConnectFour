@@ -42,7 +42,9 @@ namespace ConnectFourServer
 
         public void sendPlayerXWon(Player p)
         {
-            
+            BinaryWriter writer = new BinaryWriter(networkStream);
+            writer.Write((int)commOp.winLoss);
+            writer.Write($"Player {p.name} won ");
         }
 
     }

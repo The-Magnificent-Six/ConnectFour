@@ -19,8 +19,40 @@ namespace ConnectFourServer
         {
             this.setName(u.name);
             this.networkStream = u.netStream;
+            // this.WaitForMove();
         }
-
+        public void WaitForMove()
+        {
+            while(true)
+            {
+                if(networkStream.CanRead)
+                {
+                    BinaryReader reader = new BinaryReader(networkStream);
+                    commOp op = (commOp) reader.Read();
+                    if(op == commOp.playerMoveReq)
+                    {
+                        int x = reader.Read();
+                        int y = reader.Read();
+                        int TokenColor = reader.Read();
+                        if (!room.makeAMove(x,y,this))
+                        {
+                            if(this == room.Players[0] )
+                                room.Players[1].WaitForMove();
+                            else 
+                                room.Players[0].WaitForMove();
+                        }
+                        else
+                            return;
+                    }
+                    else
+                    {
+                        BinaryWriter writer = new BinaryWriter(networkStream);
+                        sendError($"received {(int)op} instead of move Request");
+                    }
+                    return;
+                }
+            }
+        }
         public void setToken( int tokenColor)
         {
             tokencolor = tokenColor;
@@ -32,15 +64,15 @@ namespace ConnectFourServer
 
         public void sendWinToPlayer()
         {
-
+            BinaryWriter bw = new BinaryWriter(netStream);
+            bw.Write((int)commOp.winLoss);
+            bw.Write("Veni, Vidi, Vici");
         }
         public void sendLossToPlayer()
         {
-
+            BinaryWriter bw = new BinaryWriter(netStream);
+            bw.Write((int)commOp.winLoss);
+            bw.Write("you were outmatched sir");
         }
-        
-        //thread to receive a move
-
-
     }
 }
