@@ -13,11 +13,13 @@ namespace MainUIGame
     public partial class dialog : Form
     {
         public tokencolor Col ;
+        public string op { get; set; }
 
         public dialog()
         {
             InitializeComponent();
             Player1Col();
+            
 
 
         }
@@ -33,10 +35,14 @@ namespace MainUIGame
         {
           
             // request to join the game by 2secnd player
-            int reqno = 4;
+            string reqno = "3";
             User.getInstance().BW.Write(reqno);
             //send color to server 
+            User.getInstance().userColor = (tokencolor)comboBox1.SelectedIndex;
             User.getInstance().BW.Write(comboBox1.SelectedIndex);
+            op = User.getInstance().BR.ReadString();
+
+
         }
 
         private void Player1Col()

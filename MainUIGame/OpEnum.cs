@@ -10,7 +10,7 @@ namespace MainUIGame
     {
         error = -1,
         availRoomsReq = 1,
-        createRoomReq = 2,  //hnan
+        createRoomReq = 2,
         joinRoomAsPlayer = 3,
         joinRoomAsSpectator = 4,
         getWholeBoard = 5,

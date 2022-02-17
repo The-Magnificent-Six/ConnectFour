@@ -79,7 +79,7 @@ namespace MainUIGame
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(4, 399);
+            this.button1.Location = new System.Drawing.Point(3, 353);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(95, 39);
             this.button1.TabIndex = 4;
@@ -123,7 +123,7 @@ namespace MainUIGame
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(131, 399);
+            this.button2.Location = new System.Drawing.Point(131, 353);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(98, 39);
             this.button2.TabIndex = 9;
@@ -135,7 +135,7 @@ namespace MainUIGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(302, 394);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox2);
