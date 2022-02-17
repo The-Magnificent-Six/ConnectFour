@@ -10,7 +10,7 @@ using System.IO;
 namespace MainUIGame
 {
    public class User
-    {
+   {
         public NetworkStream ns;
         public string username;
         public tokencolor userColor;
@@ -23,7 +23,6 @@ namespace MainUIGame
         private User()
         {
             serverIP = new IPAddress(bt);
-            
             client.Connect(serverIP,3000);
             ns = client.GetStream();
             BR = new BinaryReader(ns);

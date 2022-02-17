@@ -17,8 +17,11 @@ namespace MainUIGame
         public int noPlayers;
         public int noSpectator;
         public tokencolor Tcl;
+        public int row;
+        public int column;
 
     }
+    
     public partial class Lobby : Form
     {
         int x;
@@ -31,16 +34,15 @@ namespace MainUIGame
         int j ;
         int ticks;
         int n ;
-        int reqNo;
+        string reqNo;
         dialog dg = new dialog();
         Button btn;
+        room[] availablerooms;
         //Login log;
-        
+
 
         // ListBox newlistbox;
         // tcp connection
-
-
 
         public string lb
         {
@@ -68,22 +70,20 @@ namespace MainUIGame
             //players[2] = new string[2];
             //players[3] = new string[2];
 
-
-
-
-
-
         }
         private void button1_Click(object sender, EventArgs e)
-        {//Form2 f2=new Form2();
-         //f2.showDialog();
-            reqNo = 2;
+        {
+            //Create
+
+            //Form2 f2=new Form2();
+            //f2.showDialog();
+
+            reqNo = "3";
             User.getInstance().BW.Write(reqNo);
             User.getInstance().BW.Write(lb);
 
             if (roomcount <10)
             {
-
                 newPanel[n] = new Panel();
                 newPanel[n].Location = new System.Drawing.Point(x, y);
                 newPanel[n].BackColor = Color.Transparent;
@@ -96,7 +96,6 @@ namespace MainUIGame
 
                 if (x >= this.Width - 200)
                 { x -= (this.Width - 200); y += 230; }
-
 
                 newButton[n] = new Button();
                 newButton[n].Text = "join";
@@ -128,9 +127,18 @@ namespace MainUIGame
                 newPanel[n].Controls.Add(newlistbox[n]);
                 newlistbox[n].Items.Add("1 player");
 
-              
                 roomcount++;
                 n++;
+
+
+                CreateDialog cdlg = new CreateDialog();
+                cdlg.ShowDialog();
+                DialogResult dReasult = cdlg.DialogResult;
+                if(dReasult == DialogResult.OK)
+                {
+                    
+                }
+
 
                 //MessageBox.Show("Number of rooms in create "+roomcount.ToString());
 
@@ -140,45 +148,38 @@ namespace MainUIGame
 
         private void NewButton_Click2(object sender, EventArgs e)
         {
-            reqNo = 3;
+            //Join 
+
+            reqNo = "3";
             User.getInstance().BW.Write(reqNo);
             User.getInstance().BW.Write(lb);
 
             btn = (Button)sender;
             j++;
             if (j == 1)
-            { btn.Text = "Spectate";
+            { 
+                btn.Text = "Spectate";
+                dialog dlg = new dialog();
+                dlg.Col = availablerooms[btn.TabIndex].Tcl;
+                dlg.ShowDialog();
+                DialogResult jdr = dlg.DialogResult;
+                if(jdr==DialogResult.OK)
+                {
+                    string p = User.getInstance().BR.ReadString();
+
+                }
+
                 //joining request to spectate a game
                 j = 0;
-                reqNo = 4;
-                User.getInstance().BW.Write(reqNo);
-                User.getInstance().BW.Write(lb);
 
             }
+            if(btn.Text == "Spectate")
+            {
+                reqNo = "4";
+                User.getInstance().BW.Write(reqNo);
+                User.getInstance().BW.Write(lb);
+            }
 
-            //if (newlistbox[btn.TabIndex].Items.Count<2)
-            //{
-            //    dg.ShowDialog();
-            //    if (j == 0)
-            //    {
-
-            //        newlistbox[btn.TabIndex].Items.Add(players[n - 1][j]);
-            //        //MessageBox.Show(btn.TabIndex.ToString());
-            //        j=1;
-            //    }
-            //    else if (j == 1)
-            //    {
-
-            //        newlistbox[btn.TabIndex].Items.Add(players[n - 1][j]);
-            //        MessageBox.Show(btn.TabIndex.ToString());
-            //        j = 0;
-            //    }
-
-            //}
-            //else 
-            //{
-            //    MessageBox.Show("you can join as a spectator");
-            //    btn.Text="Spectate";}
             
         }
         private void Form1_Load(object sender, EventArgs e)
@@ -207,15 +208,16 @@ namespace MainUIGame
 
                 x = 150;
                 y = 150;
-                if (n > 0)
-                {
-                    n--;
 
-                }
-                else
-                {
-                    MessageBox.Show("No More Rooms");
-                }
+                //if (n > 0)
+                //{
+                //    n--;
+
+                //}
+                //else
+                //{
+                //    MessageBox.Show("No More Rooms");
+                //}
 
 
 
@@ -232,7 +234,7 @@ namespace MainUIGame
             {
             //call servr for rooms count 
             
-            reqNo = 1;
+            reqNo = "1";
             User.getInstance().BW.Write(reqNo);
             while (!User.getInstance().ns.CanRead) { }
 
@@ -241,7 +243,7 @@ namespace MainUIGame
 
             {
                 n = User.getInstance().BR.Read();
-                room[] availablerooms = new room[n];
+                availablerooms = new room[n];
                 for (int i = 0; i < availablerooms.Length; i++)
                 {
                     availablerooms[i].roomName = User.getInstance().BR.ReadString();
