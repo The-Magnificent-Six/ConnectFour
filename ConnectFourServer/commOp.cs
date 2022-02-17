@@ -4,19 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MainUIGame
+namespace ConnectFourServer
 {
     enum commOp
     {
         error = -1,
         availRoomsReq = 1,
         createRoomReq = 2,
-        joinRoomAsPlayer = 3,
+        joinRoomAsPlayer= 3,
         joinRoomAsSpectator = 4,
-        getWholeBoard = 5,
-        playerMoveReq = 6,
+        WholeBoard = 5,
+        playerMoveReq = 6, 
         roomsResp = 7,
-        Accept = 8,
+        accept = 8,
         winLoss = 9
 
     }
