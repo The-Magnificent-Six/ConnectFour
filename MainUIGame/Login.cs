@@ -48,10 +48,10 @@ namespace MainUIGame
                 MessageBox.Show("Please enter a correct password or usernam");     
 
             }
-            //Lobby lob = new FormT();
-            //lob.lb = s;
-            //this.Hide();
-            //lob.Show();
+            Lobby lob = new FormT();
+            lob.lb = s;
+            this.Hide();
+            lob.Show();
         }
     }
 }
