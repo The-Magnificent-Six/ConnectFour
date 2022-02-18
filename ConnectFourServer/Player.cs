@@ -29,12 +29,12 @@ namespace ConnectFourServer
                 if(networkStream.CanRead)
                 {
                     BinaryReader reader = new BinaryReader(networkStream);
-                    commOp op = (commOp) int.Parse( reader.ReadString());
+                    commOp op = (commOp) int.Parse( reader.ReadStringIgnoreNull());
                     if(op == commOp.playerMoveReq)
                     {
-                        int x = int.Parse( reader.ReadString());
-                        int y = int.Parse( reader.ReadString());
-                        int TokenColor = int.Parse( reader.ReadString());
+                        int x = int.Parse( reader.ReadStringIgnoreNull());
+                        int y = int.Parse( reader.ReadStringIgnoreNull());
+                        int TokenColor = int.Parse( reader.ReadStringIgnoreNull());
                         if (!room.makeAMove(x,y,this))
                         {
                             if(this == room.Players[0] )

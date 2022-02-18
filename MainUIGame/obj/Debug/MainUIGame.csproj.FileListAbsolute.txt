@@ -46,3 +46,6 @@ C:\Users\Window's-10\Source\Repos\Connect4 fin\MainUIGame\bin\Debug\MainUIGame.e
 C:\Users\Window's-10\Source\Repos\Connect4 fin\MainUIGame\bin\Debug\MainUIGame.exe
 C:\Users\Window's-10\Source\Repos\Connect4 fin\MainUIGame\bin\Debug\MainUIGame.pdb
 C:\Users\Window's-10\Source\Repos\Connect4 fin\MainUIGame\obj\Debug\MainUIGame.exe
+C:\Users\Youssef\Source\Repos\The-Magnificent-Six\ConnectFour\MainUIGame\obj\Debug\MainUIGame.CreateDialog.resources
+C:\Users\Youssef\Source\Repos\The-Magnificent-Six\ConnectFour\MainUIGame\obj\Debug\MainUIGame.dialog.resources
+C:\Users\Youssef\Source\Repos\The-Magnificent-Six\ConnectFour\MainUIGame\obj\Debug\MainUIGame.Lobby.resources

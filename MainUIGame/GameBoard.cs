@@ -319,16 +319,16 @@ namespace MainUIGame
             User.getInstance().BW.Write(y.ToString());
             int cl = (int)User.getInstance().userColor;
             User.getInstance().BW.Write(cl.ToString());
-       string op   =  User.getInstance().BR.ReadString();
+       string op   =  User.getInstance().BR.ReadStringIgnoreNull();
             if (op == "6")
             {
                 while (true)
                 {
                     if (User.getInstance().ns.CanRead)
                     {
-                        string z = User.getInstance().BR.ReadString();
-                        string w = User.getInstance().BR.ReadString();
-                        string c = User.getInstance().BR.ReadString();
+                        string z = User.getInstance().BR.ReadStringIgnoreNull();
+                        string w = User.getInstance().BR.ReadStringIgnoreNull();
+                        string c = User.getInstance().BR.ReadStringIgnoreNull();
                         if (x.ToString() == z && y.ToString() == w && c == cl.ToString())
                         {
                             break;

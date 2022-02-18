@@ -59,6 +59,7 @@
     <Compile Include="GameBoard.designer.cs">
       <DependentUpon>GameBoard.cs</DependentUpon>
     </Compile>
+    <Compile Include="helper.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>

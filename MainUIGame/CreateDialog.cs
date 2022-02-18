@@ -36,7 +36,7 @@ namespace MainUIGame
             User.getInstance().BW.Write(ColNo);
             User.getInstance().BW.Write(RomeName);
             User.getInstance().BW.Write(User.getInstance().username);
-            op = User.getInstance().BR.ReadString();
+            op = User.getInstance().BR.ReadStringIgnoreNull();
             this.Close();
 
             

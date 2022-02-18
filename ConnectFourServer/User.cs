@@ -30,10 +30,9 @@ namespace ConnectFourServer
             BinaryReader reader = new BinaryReader(networkStream);
             while(true)
             {
-                Console.WriteLine(Program.rooms.Count.ToString());
                 if (networkStream.CanRead)
                 {
-                    commOp op = (commOp)int.Parse( reader.ReadString());
+                    commOp op = (commOp)int.Parse( reader.ReadStringIgnoreNull());
                     switch (op)
                     {
                         case commOp.availRoomsReq:
@@ -43,26 +42,31 @@ namespace ConnectFourServer
 
                         case commOp.createRoomReq:
                             
-                            int tokenColor_ = int.Parse( reader.ReadString());
-                            int rows_= int.Parse( reader.ReadString());
-                            int cols_= int.Parse( reader.ReadString());
-                            string roomName_ = reader.ReadString();
-                            string playerName_ = reader.ReadString();
+                            int tokenColor_ = int.Parse( reader.ReadStringIgnoreNull());
+                            int rows_= int.Parse( reader.ReadStringIgnoreNull());
+                            int cols_= int.Parse( reader.ReadStringIgnoreNull());
+                            string roomName_ = reader.ReadStringIgnoreNull();
+                            string playerName_ = reader.ReadStringIgnoreNull();
+                            Console.WriteLine(tokenColor_ + " " + roomName_ + " " + rows_ + " " + cols_ + " " + playerName_);
                             bool roomNameUnique = true;
-                            
+                          
                             foreach (Room r in Program.rooms)
-                                if(r.name == roomName_)
+                                if (r.name == roomName_)
                                     roomNameUnique = false;
-                            
-                            if ( roomNameUnique )
+
+
+                            if (roomNameUnique)
                             {
-                                BinaryWriter writer = new BinaryWriter(networkStream);  
+
+                                BinaryWriter writer = new BinaryWriter(networkStream);
                                 writer.Write(((int)commOp.accept).ToString());
                                 Player p1 = new Player(this);
                                 p1.setName(playerName_);
                                 p1.setToken(tokenColor_);
+                                Console.WriteLine(p1.name+" "+p1.TokenColor.ToString());
+
                                 Program.rooms.Add(new Room(roomName_, rows_, cols_, p1));
-                                
+                                Console.WriteLine("room name is " + Program.rooms[0].name);
                                 return;
                             }
                             else
@@ -73,13 +77,13 @@ namespace ConnectFourServer
 
 
                         case commOp.joinRoomAsPlayer:
-                            int tokenColor2_ = int.Parse( reader.ReadString());
-                            string player2Name_ = reader.ReadString();
-                            string room2Name_ = reader.ReadString();
+                            int tokenColor2_ = int.Parse( reader.ReadStringIgnoreNull());
+                            string player2Name_ = reader.ReadStringIgnoreNull();
+                            string room2Name_ = reader.ReadStringIgnoreNull();
 
                             Room r_ = null;
-
-                            foreach(Room r in Program.rooms)
+                           
+                            foreach (Room r in Program.rooms)
                                 if (r.name == room2Name_)
                                     r_ = r;
                             
@@ -105,13 +109,14 @@ namespace ConnectFourServer
 
                         case commOp.joinRoomAsSpectator:
                             
-                            string roomName = reader.ReadString();
+                            string roomName = reader.ReadStringIgnoreNull();
                             
                             Room joinIntoRoom = null;
-                            
-                            foreach(Room r in Program.rooms)
-                                if(r.name == roomName)
+                           
+                            foreach (Room r in Program.rooms)
+                                if (r.name == roomName)
                                     joinIntoRoom = r;
+                            
                             if (joinIntoRoom != null)
                             {
                                 Spectator s = new Spectator(this,joinIntoRoom);
@@ -127,7 +132,7 @@ namespace ConnectFourServer
 
                         case 0:
                             //nada
-                            Console.WriteLine("0 received");//fih moshkela hena
+                            Console.WriteLine("0 received");//law 7asal moshkela hena control chars
                             break;
 
 
@@ -186,12 +191,14 @@ namespace ConnectFourServer
             BinaryWriter bw = new BinaryWriter( netStream );
             
             bw.Write( ((int)commOp.roomsResp).ToString() );
-            
-            bw.Write(Program.rooms.Count.ToString());
-            
-            foreach (Room r in Program.rooms)
+            lock (Program.rooms)
             {
-                sendRoomDetails(r);
+                bw.Write(Program.rooms.Count.ToString());
+
+                foreach (Room r in Program.rooms)
+                {
+                    sendRoomDetails(r);
+                }
             }
         }
 

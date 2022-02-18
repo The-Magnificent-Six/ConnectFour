@@ -5,3 +5,11 @@ C:\Users\Window's-10\Source\Repos\Connect4 fin\ConnectFourServer\obj\Debug\Conne
 C:\Users\Window's-10\Source\Repos\Connect4 fin\ConnectFourServer\obj\Debug\ConnectFourServer.csproj.CoreCompileInputs.cache
 C:\Users\Window's-10\Source\Repos\Connect4 fin\ConnectFourServer\obj\Debug\ConnectFourServer.exe
 C:\Users\Window's-10\Source\Repos\Connect4 fin\ConnectFourServer\obj\Debug\ConnectFourServer.pdb
+C:\Users\Youssef\Source\Repos\The-Magnificent-Six\ConnectFour\ConnectFourServer\bin\Debug\ConnectFourServer.exe.config
+C:\Users\Youssef\Source\Repos\The-Magnificent-Six\ConnectFour\ConnectFourServer\bin\Debug\ConnectFourServer.exe
+C:\Users\Youssef\Source\Repos\The-Magnificent-Six\ConnectFour\ConnectFourServer\bin\Debug\ConnectFourServer.pdb
+C:\Users\Youssef\Source\Repos\The-Magnificent-Six\ConnectFour\ConnectFourServer\obj\Debug\ConnectFourServer.csproj.AssemblyReference.cache
+C:\Users\Youssef\Source\Repos\The-Magnificent-Six\ConnectFour\ConnectFourServer\obj\Debug\ConnectFourServer.csproj.SuggestedBindingRedirects.cache
+C:\Users\Youssef\Source\Repos\The-Magnificent-Six\ConnectFour\ConnectFourServer\obj\Debug\ConnectFourServer.csproj.CoreCompileInputs.cache
+C:\Users\Youssef\Source\Repos\The-Magnificent-Six\ConnectFour\ConnectFourServer\obj\Debug\ConnectFourServer.exe
+C:\Users\Youssef\Source\Repos\The-Magnificent-Six\ConnectFour\ConnectFourServer\obj\Debug\ConnectFourServer.pdb

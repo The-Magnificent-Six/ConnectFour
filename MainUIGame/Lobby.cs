@@ -138,7 +138,7 @@ namespace MainUIGame
                 else if (cdlg.op == "-1")
                     {
                         cdlg.Close();
-                        string err = User.getInstance().BR.ReadString();
+                        string err = User.getInstance().BR.ReadStringIgnoreNull();
                         MessageBox.Show(err);
                     }
                     
@@ -248,17 +248,17 @@ namespace MainUIGame
                 if (User.getInstance().ns.CanRead)
                 {
 
-                    int serverRes = int.Parse(User.getInstance().BR.ReadString());
+                    int serverRes = int.Parse(User.getInstance().BR.ReadStringIgnoreNull());
                     if (serverRes == 5)
                     {
                         string player1, color1, player2, color2;
                         int row, col;
-                        player1 = User.getInstance().BR.ReadString();
-                        color1 = User.getInstance().BR.ReadString();
-                        player2 = User.getInstance().BR.ReadString();
-                        color2 = User.getInstance().BR.ReadString();
-                        row = int.Parse(User.getInstance().BR.ReadString());
-                        col = int.Parse(User.getInstance().BR.ReadString());
+                        player1 = User.getInstance().BR.ReadStringIgnoreNull();
+                        color1 = User.getInstance().BR.ReadStringIgnoreNull();
+                        player2 = User.getInstance().BR.ReadStringIgnoreNull();
+                        color2 = User.getInstance().BR.ReadStringIgnoreNull();
+                        row = int.Parse(User.getInstance().BR.ReadStringIgnoreNull());
+                        col = int.Parse(User.getInstance().BR.ReadStringIgnoreNull());
                         GameBoard gameSpectate = new GameBoard(availablerooms[btn.TabIndex].roomName, row, col);
                         GameBoard.turn = 3;
                        // gameSpectate.setHostColor ();
@@ -267,7 +267,7 @@ namespace MainUIGame
                         {
                             for (int j = 0; j < col; j++)
                             {
-                                gameSpectate.board[i, j] = int.Parse(User.getInstance().BR.ReadString());
+                                gameSpectate.board[i, j] = int.Parse(User.getInstance().BR.ReadStringIgnoreNull());
                             }
                         }
                         gameSpectate.Show();
@@ -279,7 +279,7 @@ namespace MainUIGame
                     }
                     else if (serverRes == -1)
                     {
-                        string e = User.getInstance().BR.ReadString();
+                        string e = User.getInstance().BR.ReadStringIgnoreNull();
                         MessageBox.Show(e);
                     }
                     break;
@@ -294,22 +294,21 @@ namespace MainUIGame
             User.getInstance().BW.Write(reqNo);
             while (!User.getInstance().ns.CanRead) { }
 
-               string p = User.getInstance().BR.ReadString();
+               string p = User.getInstance().BR.ReadStringIgnoreNull();
             if (p == "7")
 
             {
-                n = int.Parse (User.getInstance().BR.ReadString());
-                MessageBox.Show(n.ToString());
+                n = int.Parse (User.getInstance().BR.ReadStringIgnoreNull());
                 availablerooms = new room[n];
                 for (int i = 0; i < availablerooms.Length; i++)
                 {
-                    availablerooms[i].roomName = User.getInstance().BR.ReadString();
-                    availablerooms[i].noPlayers = int.Parse (User.getInstance().BR.ReadString());
+                    availablerooms[i].roomName = User.getInstance().BR.ReadStringIgnoreNull();
+                    availablerooms[i].noPlayers = int.Parse (User.getInstance().BR.ReadStringIgnoreNull());
                     if (availablerooms[i].noPlayers == 1)
                     {
-                        availablerooms[i].Tcl = (tokencolor) int.Parse (User.getInstance().BR.ReadString());
+                        availablerooms[i].Tcl = (tokencolor) int.Parse (User.getInstance().BR.ReadStringIgnoreNull());
                     }
-                    availablerooms[i].noSpectator = int.Parse(User.getInstance().BR.ReadString());
+                    availablerooms[i].noSpectator = int.Parse(User.getInstance().BR.ReadStringIgnoreNull());
                 }
                  
             }

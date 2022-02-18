@@ -40,7 +40,6 @@ namespace MainUIGame
             if (UsrName.Text!="")
             {
                 s = UsrName.Text;
-            MessageBox.Show("working");
             }
             else
             {
