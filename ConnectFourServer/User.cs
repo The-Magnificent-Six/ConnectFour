@@ -30,7 +30,8 @@ namespace ConnectFourServer
             BinaryReader reader = new BinaryReader(networkStream);
             while(true)
             {
-                if(networkStream.CanRead)
+                Console.WriteLine(Program.rooms.Count.ToString());
+                if (networkStream.CanRead)
                 {
                     commOp op = (commOp)int.Parse( reader.ReadString());
                     switch (op)
@@ -66,6 +67,7 @@ namespace ConnectFourServer
                             }
                             else
                                 sendError("room name is not unique");
+                            
                             
                             break;
 
@@ -138,7 +140,7 @@ namespace ConnectFourServer
             
         }
 
-        private void sendError(string v)
+        public void sendError(string v)
         {
             BinaryWriter bw = new BinaryWriter(netStream);
             bw.Write(((int)commOp.error).ToString());

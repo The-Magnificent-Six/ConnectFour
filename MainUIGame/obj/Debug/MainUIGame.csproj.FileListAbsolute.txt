@@ -33,3 +33,16 @@ C:\Users\Waad\Desktop\ConnectFour-20220212T131230Z-001\ConnectFour\MainUIGame\ob
 C:\Users\Waad\Desktop\ConnectFour-20220212T131230Z-001\ConnectFour\MainUIGame\obj\Debug\MainUIGame.CreateDialog.resources
 C:\Users\Waad\Desktop\ConnectFour-20220212T131230Z-001\ConnectFour\MainUIGame\obj\Debug\MainUIGame.dialog.resources
 C:\Users\Waad\Desktop\ConnectFour-20220212T131230Z-001\ConnectFour\MainUIGame\obj\Debug\MainUIGame.Lobby.resources
+C:\Users\Window's-10\Source\Repos\Connect4 fin\MainUIGame\obj\Debug\MainUIGame.csprojAssemblyReference.cache
+C:\Users\Window's-10\Source\Repos\Connect4 fin\MainUIGame\obj\Debug\MainUIGame.CreateDialog.resources
+C:\Users\Window's-10\Source\Repos\Connect4 fin\MainUIGame\obj\Debug\MainUIGame.dialog.resources
+C:\Users\Window's-10\Source\Repos\Connect4 fin\MainUIGame\obj\Debug\MainUIGame.Lobby.resources
+C:\Users\Window's-10\Source\Repos\Connect4 fin\MainUIGame\obj\Debug\MainUIGame.Login.resources
+C:\Users\Window's-10\Source\Repos\Connect4 fin\MainUIGame\obj\Debug\MainUIGame.Properties.Resources.resources
+C:\Users\Window's-10\Source\Repos\Connect4 fin\MainUIGame\obj\Debug\MainUIGame.csproj.GenerateResource.cache
+C:\Users\Window's-10\Source\Repos\Connect4 fin\MainUIGame\obj\Debug\MainUIGame.csproj.CoreCompileInputs.cache
+C:\Users\Window's-10\Source\Repos\Connect4 fin\MainUIGame\obj\Debug\MainUIGame.pdb
+C:\Users\Window's-10\Source\Repos\Connect4 fin\MainUIGame\bin\Debug\MainUIGame.exe.config
+C:\Users\Window's-10\Source\Repos\Connect4 fin\MainUIGame\bin\Debug\MainUIGame.exe
+C:\Users\Window's-10\Source\Repos\Connect4 fin\MainUIGame\bin\Debug\MainUIGame.pdb
+C:\Users\Window's-10\Source\Repos\Connect4 fin\MainUIGame\obj\Debug\MainUIGame.exe

@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using WindowsFormsApp4;
+//using WindowsFormsApp4;
 
 namespace MainUIGame
 {
@@ -140,64 +140,69 @@ namespace MainUIGame
         }
 
         //Event of Mouseclick
+        
         private void Form1_MouseClick(object sender, MouseEventArgs e)
-        {
-            int columnIndex = this.columNumber(e.Location);
-            //validate to add
-            if (columnIndex != -1)
-            {
-                int rowindex = this.EmptyRow(columnIndex);
-                if (rowindex != -1)
+        {if (turn==1)
+            { int columnIndex = this.columNumber(e.Location);
+                //validate to add
+                if (columnIndex != -1)
                 {
-                    this.board[rowindex, columnIndex] = turn;  // server
-                                                               //  user.SendServerRequest(Single.SendMove, columnIndex.ToString(), rowindex.ToString());
-
-                    if (turn == 1) //cuurnt player 
+                    int rowindex = this.EmptyRow(columnIndex);
+                    if (rowindex != -1)
                     {
+                        this.board[rowindex, columnIndex] = turn;  // server
+                                                                   //  user.SendServerRequest(Single.SendMove, columnIndex.ToString(), rowindex.ToString());
 
-                        repaintBord();
-
-
-                    }
-
-
-                    else if (turn == 2)
-                    {
-
-                        repaintBord();
-                    }
-                    else if (turn == 3)
-                    {
-
-                        repaintBord();
-                    }
-
-
-                    //***************Winner***********
-                    int winner = this.winnerplayer(turn);
-
-                    if (winner != -1)//There is a winning player
-                    {
-
-                        if (winner == 1)
+                        if (turn == 1) //cuurnt player 
                         {
-                            player = (int)User.getInstance().userColor;
+
+                            repaintBord();
+
+
+
+                        }
+
+
+                        else if (turn == 2)
+                        {
+
+                            repaintBord();
+
+                        }
+                        else if (turn == 3)
+                        {
+
+                            repaintBord();
+
+                        }
+
+
+                        //***************Winner***********
+                        int winner = this.winnerplayer(turn);
+
+                        if (winner != -1)//There is a winning player
+                        {
+
+                            if (winner == 1)
+                            {
+                                player = (int)User.getInstance().userColor;
+                            }
+                            else
+                            { player = (int)User.getInstance().userColor; }
+                            MessageBox.Show(player + "player has win");
+                        }
+
+                        // change 1=>2 && 2=>1
+                        if (turn == 1)
+                        {
+                            turn = 2;
                         }
                         else
-                        { player = (int)User.getInstance().userColor; }
-                        MessageBox.Show(player + "player has win");
-                    }
+                        {
+                            turn = 1;
+                        }
 
-                    // change 1=>2 && 2=>1
-                    if (turn == 1)
-                    {
-                        turn = 2;
                     }
-                    else
-                    {
-                        turn = 1;
-                    }
-
                 }
             }
         }

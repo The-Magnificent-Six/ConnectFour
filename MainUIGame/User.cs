@@ -25,6 +25,7 @@ namespace MainUIGame
         private User()
         {
             serverIP = new IPAddress(bt);
+            client = new TcpClient();
             client.Connect(serverIP, 3000);
             ns = client.GetStream();
             BR = new BinaryReader(ns);

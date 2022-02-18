@@ -224,16 +224,16 @@ namespace MainUIGame.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap WhatsApp_Image_2022_02_06_at_11_234 {
-            get {
-                object obj = ResourceManager.GetObject("WhatsApp Image 2022-02-06 at 11.234", resourceCulture);
-            }
-        }
-        internal static System.Drawing.Bitmap user {
-            get {
-                object obj = ResourceManager.GetObject("user", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
+        //internal static System.Drawing.Bitmap WhatsApp_Image_2022_02_06_at_11_234 {
+        //    get {
+        //        object obj = ResourceManager.GetObject("WhatsApp Image 2022-02-06 at 11.234", resourceCulture);
+        //    }
+        //}
+        //internal static System.Drawing.Bitmap user {
+        //    get {
+        //        object obj = ResourceManager.GetObject("user", resourceCulture);
+        //        return ((System.Drawing.Bitmap)(obj));
+        //    }
         }
     }
-}
+//}

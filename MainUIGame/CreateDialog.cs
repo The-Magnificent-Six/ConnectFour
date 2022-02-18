@@ -28,10 +28,10 @@ namespace MainUIGame
             RomeName = textBox1.Text;
             RowNo = textBox2.Text;
             ColNo = textBox3.Text;
-            TokenCol= (tokencolor)comboBox1.SelectedItem;
+            TokenCol= (tokencolor)comboBox1.SelectedIndex;
             User.getInstance().userColor =TokenCol; 
             User.getInstance().BW.Write("2");
-            User.getInstance().BW.Write(TokenCol.ToString());
+            User.getInstance().BW.Write(((int)TokenCol).ToString());
             User.getInstance().BW.Write(RowNo);
             User.getInstance().BW.Write(ColNo);
             User.getInstance().BW.Write(RomeName);

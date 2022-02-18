@@ -70,9 +70,9 @@ namespace MainUIGame
             //Create
 
         
-            reqNo = "3";
-            User.getInstance().BW.Write(reqNo);
-            User.getInstance().BW.Write(lb);
+            //reqNo = "2";
+            //User.getInstance().BW.Write(reqNo);
+            ////User.getInstance().BW.Write(lb);
 
                 CreateDialog cdlg = new CreateDialog();
                 
@@ -81,7 +81,7 @@ namespace MainUIGame
                 {if(cdlg.op=="8")
 
                 {
-                    if (roomcount < 10)
+                    if (n < 10)
                     {
                         newPanel[n] = new Panel();
                         newPanel[n].Location = new System.Drawing.Point(x, y);
@@ -128,10 +128,10 @@ namespace MainUIGame
 
                   
                         n++;
-                        GameBoard gb = new GameBoard(cdlg.RomeName, cdlg.RowNo, cdlg.ColNo);
-                        gb.turn= 2;
-                        gb.setHostColor = cdlg.TokenCol;
-                        gb.show();
+                        GameBoard gb = new GameBoard(cdlg.RomeName,int.Parse(cdlg.RowNo), int.Parse(cdlg.ColNo));
+                        GameBoard.turn= 2;
+                        gb.setHostColor(cdlg.TokenCol);
+                        gb.Show();
 
                         this.Close();
                     }
@@ -172,9 +172,9 @@ namespace MainUIGame
                 {if(dlg.op=="8")
                     {
                         GameBoard gb = new GameBoard(rn, rw, cl);
-                        gb.turn = 1;
-                        gb.setChallangerColor = dlg.Col;
-                        gb.show();
+                        GameBoard.turn = 1;
+                        gb.setChallangeColor(dlg.Col) ;
+                        gb.Show();
                         newlistbox[btn.TabIndex].Items.Clear();
                         newlistbox[btn.TabIndex].Items.Add("2 players");
                         this.Close();
@@ -260,9 +260,9 @@ namespace MainUIGame
                         row = int.Parse(User.getInstance().BR.ReadString());
                         col = int.Parse(User.getInstance().BR.ReadString());
                         GameBoard gameSpectate = new GameBoard(availablerooms[btn.TabIndex].roomName, row, col);
-                        gameSpectate.turn = 3;
-                        gameSpectate.setHostColor = color1;
-                        gameSpectate.setChallangerColor = color2;
+                        GameBoard.turn = 3;
+                       // gameSpectate.setHostColor ();
+                        //gameSpectate.setChallangeColor (color2);
                         for (int i = 0; i < row; i++)
                         {
                             for (int j = 0; j < col; j++)
@@ -294,21 +294,22 @@ namespace MainUIGame
             User.getInstance().BW.Write(reqNo);
             while (!User.getInstance().ns.CanRead) { }
 
-               int p = User.getInstance().BR.Read();
-            if (p == 7)
+               string p = User.getInstance().BR.ReadString();
+            if (p == "7")
 
             {
-                n = User.getInstance().BR.Read();
+                n = int.Parse (User.getInstance().BR.ReadString());
+                MessageBox.Show(n.ToString());
                 availablerooms = new room[n];
                 for (int i = 0; i < availablerooms.Length; i++)
                 {
                     availablerooms[i].roomName = User.getInstance().BR.ReadString();
-                    availablerooms[i].noPlayers = User.getInstance().BR.Read();
+                    availablerooms[i].noPlayers = int.Parse (User.getInstance().BR.ReadString());
                     if (availablerooms[i].noPlayers == 1)
                     {
-                        availablerooms[i].Tcl = (tokencolor)User.getInstance().BR.Read();
+                        availablerooms[i].Tcl = (tokencolor) int.Parse (User.getInstance().BR.ReadString());
                     }
-                    availablerooms[i].noSpectator = User.getInstance().BR.Read();
+                    availablerooms[i].noSpectator = int.Parse(User.getInstance().BR.ReadString());
                 }
                  
             }

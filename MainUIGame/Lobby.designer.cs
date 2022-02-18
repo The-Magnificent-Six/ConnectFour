@@ -43,7 +43,7 @@ namespace MainUIGame
             this.button1.BackColor = System.Drawing.Color.Black;
             this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button1.Location = new System.Drawing.Point(498, 235);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(111, 46);
             this.button1.TabIndex = 0;
@@ -53,11 +53,11 @@ namespace MainUIGame
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackgroundImage = global::MainUIGame.Properties.Resources.WhatsApp_Image_2022_02_06_at_11_234;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Image = global::MainUIGame.Properties.Resources.WhatsApp_Image_2022_02_06_at_11_23_46_AM__2_;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(230, 45);
+            this.pictureBox1.Size = new System.Drawing.Size(261, 66);
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
             // 
@@ -91,7 +91,7 @@ namespace MainUIGame
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Lobby";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);

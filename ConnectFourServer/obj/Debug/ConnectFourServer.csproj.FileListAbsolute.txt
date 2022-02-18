@@ -1,0 +1,7 @@
+C:\Users\Window's-10\Source\Repos\Connect4 fin\ConnectFourServer\bin\Debug\ConnectFourServer.exe.config
+C:\Users\Window's-10\Source\Repos\Connect4 fin\ConnectFourServer\bin\Debug\ConnectFourServer.exe
+C:\Users\Window's-10\Source\Repos\Connect4 fin\ConnectFourServer\bin\Debug\ConnectFourServer.pdb
+C:\Users\Window's-10\Source\Repos\Connect4 fin\ConnectFourServer\obj\Debug\ConnectFourServer.csprojAssemblyReference.cache
+C:\Users\Window's-10\Source\Repos\Connect4 fin\ConnectFourServer\obj\Debug\ConnectFourServer.csproj.CoreCompileInputs.cache
+C:\Users\Window's-10\Source\Repos\Connect4 fin\ConnectFourServer\obj\Debug\ConnectFourServer.exe
+C:\Users\Window's-10\Source\Repos\Connect4 fin\ConnectFourServer\obj\Debug\ConnectFourServer.pdb

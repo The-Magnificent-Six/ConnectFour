@@ -8,7 +8,7 @@ namespace MainUIGame
 {
     public enum tokencolor 
     {
-        Red=1,
+        Red,
         Blue,
         Green,
         Violet
