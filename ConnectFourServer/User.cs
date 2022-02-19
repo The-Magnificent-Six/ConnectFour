@@ -187,15 +187,14 @@ namespace ConnectFourServer
             BinaryWriter bw = new BinaryWriter( netStream );
             
             bw.Write( ((int)commOp.roomsResp).ToString() );
-            lock (Program.rooms)
-            {
-                bw.Write(Program.rooms.Count.ToString());
+            
+            bw.Write(Program.rooms.Count.ToString());
 
-                foreach (Room r in Program.rooms)
-                {
-                    sendRoomDetails(r);
-                }
+            foreach (Room r in Program.rooms)
+            {
+                sendRoomDetails(r);
             }
+            
         }
 
     }

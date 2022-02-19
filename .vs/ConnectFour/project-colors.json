@@ -10,7 +10,12 @@
       "ProjectGuid": "9a1b2e7d-8320-409a-8651-a94e2b5565c8",
       "DisplayName": "MainUIGame",
       "ColorIndex": 0
+    },
+    "03ca20fa-cf8b-4c22-9ae6-2c1ee7a8ba8a": {
+      "ProjectGuid": "03ca20fa-cf8b-4c22-9ae6-2c1ee7a8ba8a",
+      "DisplayName": "ConnectFourServer",
+      "ColorIndex": 1
     }
   },
-  "NextColorIndex": 1
+  "NextColorIndex": 2
 }
