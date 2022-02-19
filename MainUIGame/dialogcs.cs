@@ -39,10 +39,9 @@ namespace MainUIGame
             User.getInstance().BW.Write(reqno);
             //send color to server 
             User.getInstance().userColor = (tokencolor)comboBox1.SelectedIndex;
-            User.getInstance().BW.Write(comboBox1.SelectedIndex);
+            User.getInstance().BW.Write(((int)User.getInstance().userColor).ToString());
             op = User.getInstance().BR.ReadStringIgnoreNull();
-
-
+            this.Close();
         }
 
         private void Player1Col()

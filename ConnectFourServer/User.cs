@@ -22,17 +22,19 @@ namespace ConnectFourServer
         {
             socket = s;
             buildStream();
-            networkController();
+            //networkController();
         }
         public void networkController()
         {
             // the comm protocol
             BinaryReader reader = new BinaryReader(networkStream);
-            while(true)
+            BinaryWriter writer = new BinaryWriter(networkStream);
+            while (true)
             {
                 if (networkStream.CanRead)
                 {
                     commOp op = (commOp)int.Parse( reader.ReadStringIgnoreNull());
+                    Console.WriteLine("received : " + op.ToString());
                     switch (op)
                     {
                         case commOp.availRoomsReq:
@@ -47,26 +49,19 @@ namespace ConnectFourServer
                             int cols_= int.Parse( reader.ReadStringIgnoreNull());
                             string roomName_ = reader.ReadStringIgnoreNull();
                             string playerName_ = reader.ReadStringIgnoreNull();
-                            Console.WriteLine(tokenColor_ + " " + roomName_ + " " + rows_ + " " + cols_ + " " + playerName_);
                             bool roomNameUnique = true;
                           
                             foreach (Room r in Program.rooms)
                                 if (r.name == roomName_)
                                     roomNameUnique = false;
 
-
                             if (roomNameUnique)
                             {
-
-                                BinaryWriter writer = new BinaryWriter(networkStream);
                                 writer.Write(((int)commOp.accept).ToString());
                                 Player p1 = new Player(this);
                                 p1.setName(playerName_);
                                 p1.setToken(tokenColor_);
-                                Console.WriteLine(p1.name+" "+p1.TokenColor.ToString());
-
                                 Program.rooms.Add(new Room(roomName_, rows_, cols_, p1));
-                                Console.WriteLine("room name is " + Program.rooms[0].name);
                                 return;
                             }
                             else
@@ -100,6 +95,7 @@ namespace ConnectFourServer
                                 p2.setToken(tokenColor2_);
                                 p2.setRoom(r_);
                                 r_.addPlayer(p2);
+                                writer.Write(((int)commOp.accept).ToString());
                                 p2.WaitForMove();
                                 return;
                             }

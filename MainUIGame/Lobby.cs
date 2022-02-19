@@ -35,7 +35,6 @@ namespace MainUIGame
         int ticks;
         int n ;
         string reqNo;
-        dialog dg = new dialog();
         Button btn;
         room[] availablerooms;
         Login log;

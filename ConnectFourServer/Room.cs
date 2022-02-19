@@ -10,7 +10,7 @@ namespace ConnectFourServer
     {
         public Board board;
         String roomName;
-        public String name { get; }
+        public String name { get => roomName; }
         Player[] players;
         public Player[] Players { get => players; }
         List<Spectator> spectators = new List<Spectator>() ;

@@ -37,6 +37,7 @@ namespace ConnectFourServer
                     Task.Factory.StartNew( (socketConnection_) =>{
                         
                         User nUser = new User((Socket)socketConnection_);
+                        nUser.networkController();
 
                     },socketConnection );
                     
