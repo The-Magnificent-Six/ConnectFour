@@ -131,8 +131,9 @@ namespace MainUIGame
                         GameBoard.turn= 2;
                         gb.setHostColor(cdlg.TokenCol);
                         gb.Show();
-
                         this.Close();
+                        
+                        
                     }
                 else if (cdlg.op == "-1")
                     {
@@ -159,7 +160,7 @@ namespace MainUIGame
             //j++;
             if (availablerooms[btn.TabIndex].noPlayers==1)
             { 
-                btn.Text = "Spectate";
+                
                 dialog dlg = new dialog();
                 string rn =availablerooms[btn.TabIndex].roomName;
                 int rw = availablerooms[btn.TabIndex].row;
@@ -194,6 +195,7 @@ namespace MainUIGame
             }
             else if(availablerooms[btn.TabIndex].noPlayers == 2)
             {
+                btn.Text = "Spectate";
                 joinTospectate();
                 reqNo = "4";
                 User.getInstance().BW.Write(reqNo);
@@ -307,12 +309,15 @@ namespace MainUIGame
                 for (int i = 0; i < availablerooms.Length; i++)
                 {
                     availablerooms[i].roomName = User.getInstance().BR.ReadStringIgnoreNull();
+                    availablerooms[i].row = int.Parse(User.getInstance().BR.ReadStringIgnoreNull());
+                    availablerooms[i].column = int.Parse(User.getInstance().BR.ReadStringIgnoreNull());
                     availablerooms[i].noPlayers = int.Parse (User.getInstance().BR.ReadStringIgnoreNull());
                     if (availablerooms[i].noPlayers == 1)
                     {
                         availablerooms[i].Tcl = (tokencolor) int.Parse (User.getInstance().BR.ReadStringIgnoreNull());
                     }
                     availablerooms[i].noSpectator = int.Parse(User.getInstance().BR.ReadStringIgnoreNull());
+
                 }
                  
             }

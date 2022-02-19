@@ -52,6 +52,7 @@ namespace MainUIGame
         public GameBoard()
         {
              InitializeComponent();
+            HostColor = Color.FromName(User.getInstance().userColor.ToString());
 
             mainlobby = this;
 
@@ -78,7 +79,7 @@ namespace MainUIGame
             this.boardcolumns = new Rectangle[columns];
             HostBrush = new SolidBrush(HostColor);
             //HostBrush = new SolidBrush(Color.FromName(tokColor1.ToString));
-
+            
         }
         //public GameBoard(string RoomName, int rows, int cols ,int tokenColor2) : this(RoomName,rows,cols)
         //{
@@ -89,7 +90,7 @@ namespace MainUIGame
         public void repaintBord()
         {
             Graphics g = this.CreateGraphics();
-
+            MessageBox.Show(HostColor.ToString()+" chalcol is "+ChallangerColor.ToString());
             for (int i = 0; i < rows; i++)
             {
                 for (int j = 0; j < columns; j++)
@@ -142,7 +143,10 @@ namespace MainUIGame
         //Event of Mouseclick
         
         private void Form1_MouseClick(object sender, MouseEventArgs e)
-        {if (turn==1)
+        {
+            MessageBox.Show(turn.ToString());
+
+            if (turn==1)
             { int columnIndex = this.columNumber(e.Location);
                 //validate to add
                 if (columnIndex != -1)
@@ -151,30 +155,33 @@ namespace MainUIGame
                     if (rowindex != -1)
                     {
                         this.board[rowindex, columnIndex] = turn;  // server
-                                                                   //  user.SendServerRequest(Single.SendMove, columnIndex.ToString(), rowindex.ToString());
-
-                        if (turn == 1) //cuurnt player 
-                        {
-
-                            repaintBord();
+                        repaintBord();
+                        //  user.SendServerRequest(Single.SendMove, columnIndex.ToString(), rowindex.ToString());
 
 
 
-                        }
+                        //if (turn == 1) //cuurnt player 
+                        //{
+
+                        //    repaintBord();
 
 
-                        else if (turn == 2)
-                        {
 
-                            repaintBord();
+                        //}
 
-                        }
-                        else if (turn == 3)
-                        {
 
-                            repaintBord();
+                        //else if (turn == 2)
+                        //{
 
-                        }
+                        //    repaintBord();
+
+                        //}
+                        //else if (turn == 3)
+                        //{
+
+                        //    repaintBord();
+
+                        //}
 
 
                         //***************Winner***********
@@ -196,6 +203,10 @@ namespace MainUIGame
                         if (turn == 1)
                         {
                             turn = 2;
+                            ListenForServerMove();
+                            turn = 1;
+
+
                         }
                         else
                         {
@@ -207,6 +218,40 @@ namespace MainUIGame
             }
         }
         // Winner conditions:
+
+        public void ListenForServerMove()
+        {
+            User u = User.getInstance();
+            commOp Op;
+            int x_;
+            int y_;
+            tokencolor tokcol_;
+            while (true)
+            {
+                if (u.ns.CanRead)
+                {
+ 
+                    Op = (commOp)int.Parse(u.BR.ReadStringIgnoreNull());
+                    if(Op==commOp.playerMoveReq)
+                    {
+ 
+                        x_ =int.Parse(u.BR.ReadStringIgnoreNull());
+
+                        y_ =int.Parse(u.BR.ReadStringIgnoreNull());
+
+                        tokcol_ = (tokencolor)int.Parse(u.BR.ReadStringIgnoreNull());
+                        board[x_, y_] = 2;
+
+                        repaintBord();
+                        break;
+
+                    }
+                    MessageBox.Show(((int)Op).ToString());
+                }
+
+
+            }
+        }
         private int winnerplayer(int Checkplayer)
         {
             //1)Vertical
@@ -319,25 +364,27 @@ namespace MainUIGame
             User.getInstance().BW.Write(y.ToString());
             int cl = (int)User.getInstance().userColor;
             User.getInstance().BW.Write(cl.ToString());
-       string op   =  User.getInstance().BR.ReadStringIgnoreNull();
+            string op   =  User.getInstance().BR.ReadStringIgnoreNull();
             if (op == "6")
             {
-                while (true)
+
+                if (User.getInstance().ns.CanRead)
                 {
-                    if (User.getInstance().ns.CanRead)
+                    string z = User.getInstance().BR.ReadStringIgnoreNull();
+                    string w = User.getInstance().BR.ReadStringIgnoreNull();
+                    string c = User.getInstance().BR.ReadStringIgnoreNull();
+                    if (x.ToString() != z && y.ToString() != w &&  c != cl.ToString())
                     {
-                        string z = User.getInstance().BR.ReadStringIgnoreNull();
-                        string w = User.getInstance().BR.ReadStringIgnoreNull();
-                        string c = User.getInstance().BR.ReadStringIgnoreNull();
-                        if (x.ToString() == z && y.ToString() == w && c == cl.ToString())
-                        {
-                            break;
-                        }
-                        else
-                        {
-                            MessageBox.Show("error");
-                        }
+                        MessageBox.Show("error");
+
+                            
                     }
+                    else
+                    {
+                  
+                        repaintBord();
+                    }
+                    
 
                 }
 
