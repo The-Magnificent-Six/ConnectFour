@@ -167,8 +167,13 @@ namespace MainUIGame
                 dlg.Col = availablerooms[btn.TabIndex].Tcl;
 
                 DialogResult joindr = dlg.ShowDialog();
+                User.getInstance().BW.Write(User.getInstance().username);
+                User.getInstance().BW.Write(rn);
+                
+                string op = User.getInstance().BR.ReadStringIgnoreNull();
+
                 if (joindr==DialogResult.OK)
-                {if(dlg.op=="8")
+                {if(op=="8")
                     {
                         GameBoard gb = new GameBoard(rn, rw, cl);
                         GameBoard.turn = 1;

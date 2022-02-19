@@ -40,7 +40,6 @@ namespace MainUIGame
             //send color to server 
             User.getInstance().userColor = (tokencolor)comboBox1.SelectedIndex;
             User.getInstance().BW.Write(((int)User.getInstance().userColor).ToString());
-            op = User.getInstance().BR.ReadStringIgnoreNull();
             this.Close();
         }
 
