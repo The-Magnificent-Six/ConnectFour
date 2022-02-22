@@ -131,10 +131,14 @@ namespace MainUIGame
                         GameBoard.turn= 2;
                         gb.setHostColor(cdlg.TokenCol);
                         gb.Show();
-
                         this.Close();
+                        MessageBox.Show("Please hold for the other player to connect sir ... ");
+                        Task.Factory.StartNew((board) => { ((GameBoard)board).ListenForServerMove(); }, gb);//thread board from thid
+
+
+
                     }
-                else if (cdlg.op == "-1")
+                    else if (cdlg.op == "-1")
                     {
                         cdlg.Close();
                         string err = User.getInstance().BR.ReadStringIgnoreNull();
@@ -159,7 +163,7 @@ namespace MainUIGame
             //j++;
             if (availablerooms[btn.TabIndex].noPlayers==1)
             { 
-                btn.Text = "Spectate";
+                
                 dialog dlg = new dialog();
                 string rn =availablerooms[btn.TabIndex].roomName;
                 int rw = availablerooms[btn.TabIndex].row;
@@ -182,7 +186,9 @@ namespace MainUIGame
                         newlistbox[btn.TabIndex].Items.Clear();
                         newlistbox[btn.TabIndex].Items.Add("2 players");
                         this.Close();
-                        
+                        Task.Factory.StartNew((board) => { ((GameBoard)board).ListenForServerMove(); }, gb);//thread board from thid
+
+
                     }
 
 
@@ -194,6 +200,7 @@ namespace MainUIGame
             }
             else if(availablerooms[btn.TabIndex].noPlayers == 2)
             {
+                btn.Text = "Spectate";
                 joinTospectate();
                 reqNo = "4";
                 User.getInstance().BW.Write(reqNo);
@@ -264,7 +271,7 @@ namespace MainUIGame
                         row = int.Parse(User.getInstance().BR.ReadStringIgnoreNull());
                         col = int.Parse(User.getInstance().BR.ReadStringIgnoreNull());
                         GameBoard gameSpectate = new GameBoard(availablerooms[btn.TabIndex].roomName, row, col);
-                        GameBoard.turn = 3;
+                        GameBoard.turn =3 ;
                        // gameSpectate.setHostColor ();
                         //gameSpectate.setChallangeColor (color2);
                         for (int i = 0; i < row; i++)
@@ -276,6 +283,8 @@ namespace MainUIGame
                         }
                         gameSpectate.Show();
                         this.Close();
+                        Task.Factory.StartNew((board) => { ((GameBoard)board).ListenForServerMove(); }, gameSpectate);//thread board from thid
+
 
 
 
@@ -307,12 +316,15 @@ namespace MainUIGame
                 for (int i = 0; i < availablerooms.Length; i++)
                 {
                     availablerooms[i].roomName = User.getInstance().BR.ReadStringIgnoreNull();
+                    availablerooms[i].row = int.Parse(User.getInstance().BR.ReadStringIgnoreNull());
+                    availablerooms[i].column = int.Parse(User.getInstance().BR.ReadStringIgnoreNull());
                     availablerooms[i].noPlayers = int.Parse (User.getInstance().BR.ReadStringIgnoreNull());
                     if (availablerooms[i].noPlayers == 1)
                     {
                         availablerooms[i].Tcl = (tokencolor) int.Parse (User.getInstance().BR.ReadStringIgnoreNull());
                     }
                     availablerooms[i].noSpectator = int.Parse(User.getInstance().BR.ReadStringIgnoreNull());
+
                 }
                  
             }

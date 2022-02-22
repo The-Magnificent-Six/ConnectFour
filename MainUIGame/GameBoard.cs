@@ -52,7 +52,7 @@ namespace MainUIGame
         public GameBoard()
         {
              InitializeComponent();
-
+            HostColor = Color.FromName(User.getInstance().userColor.ToString());
             mainlobby = this;
 
             //1)
@@ -89,7 +89,6 @@ namespace MainUIGame
         public void repaintBord()
         {
             Graphics g = this.CreateGraphics();
-
             for (int i = 0; i < rows; i++)
             {
                 for (int j = 0; j < columns; j++)
@@ -142,40 +141,24 @@ namespace MainUIGame
         //Event of Mouseclick
         
         private void Form1_MouseClick(object sender, MouseEventArgs e)
-        {if (turn==1)
+        {
+            
+            if (turn==1)
             { int columnIndex = this.columNumber(e.Location);
                 //validate to add
                 if (columnIndex != -1)
                 {
                     int rowindex = this.EmptyRow(columnIndex);
+                   
                     if (rowindex != -1)
                     {
-                        this.board[rowindex, columnIndex] = turn;  // server
-                                                                   //  user.SendServerRequest(Single.SendMove, columnIndex.ToString(), rowindex.ToString());
-
-                        if (turn == 1) //cuurnt player 
-                        {
-
-                            repaintBord();
-
-
-
-                        }
-
-
-                        else if (turn == 2)
-                        {
-
-                            repaintBord();
-
-                        }
-                        else if (turn == 3)
-                        {
-
-                            repaintBord();
-
-                        }
-
+                        x = rowindex;
+                        y = columnIndex;
+                        SendServerRequest();
+                        
+                        //this.board[rowindex, columnIndex] = turn;  // server
+                        //repaintBord();
+                        //  user.SendServerRequest(Single.SendMove, columnIndex.ToString(), rowindex.ToString());
 
                         //***************Winner***********
                         int winner = this.winnerplayer(turn);
@@ -189,24 +172,81 @@ namespace MainUIGame
                             }
                             else
                             { player = (int)User.getInstance().userColor; }
-                            MessageBox.Show(player + "player has win");
+                            //MessageBox.Show(player + "player has win");
                         }
 
                         // change 1=>2 && 2=>1
-                        if (turn == 1)
-                        {
-                            turn = 2;
-                        }
-                        else
-                        {
-                            turn = 1;
-                        }
+                        //if (turn == 1)
+                        //{
+                        //    turn = 2;
+                        //    ListenForServerMove();
+                        //    turn = 1;
+
+
+                        //}
+                        //else
+                        //{
+                        //    turn = 1;
+                        //}
 
                     }
                 }
             }
         }
         // Winner conditions:
+
+        public void ListenForServerMove()
+        {
+            User u = User.getInstance();
+            commOp Op;
+            int x_;
+            int y_;
+            tokencolor tokcol_;
+            while (true)
+            {
+                if (u.ns.CanRead)
+                {
+                     string OpString = u.BR.ReadStringIgnoreNull();
+                   
+                    Op = (commOp)int.Parse(OpString);
+
+                   
+                    if (Op==commOp.playerMoveReq)
+                    {
+
+ 
+                        x_ =int.Parse(u.BR.ReadStringIgnoreNull());
+
+                        y_ =int.Parse(u.BR.ReadStringIgnoreNull());
+
+                        tokcol_ = (tokencolor)int.Parse(u.BR.ReadStringIgnoreNull());
+                        if (turn == 2)
+                        {
+                            setChallangeColor(tokcol_);
+                        }
+                        board[x_, y_] = turn;
+
+                        repaintBord();
+
+                    }else if (Op == commOp.winLoss)
+                    {
+                        MessageBox.Show(u.BR.ReadStringIgnoreNull());
+                    }
+                    else
+                    {
+                        MessageBox.Show("Server w7sh");
+                    }
+                    if (turn == 1)
+                    {
+                        turn = 2;
+                    }else if(turn==2){
+                        turn = 1;
+                    }
+                }
+
+
+            }
+        }
         private int winnerplayer(int Checkplayer)
         {
             //1)Vertical
@@ -319,29 +359,32 @@ namespace MainUIGame
             User.getInstance().BW.Write(y.ToString());
             int cl = (int)User.getInstance().userColor;
             User.getInstance().BW.Write(cl.ToString());
-       string op   =  User.getInstance().BR.ReadStringIgnoreNull();
-            if (op == "6")
-            {
-                while (true)
-                {
-                    if (User.getInstance().ns.CanRead)
-                    {
-                        string z = User.getInstance().BR.ReadStringIgnoreNull();
-                        string w = User.getInstance().BR.ReadStringIgnoreNull();
-                        string c = User.getInstance().BR.ReadStringIgnoreNull();
-                        if (x.ToString() == z && y.ToString() == w && c == cl.ToString())
-                        {
-                            break;
-                        }
-                        else
-                        {
-                            MessageBox.Show("error");
-                        }
-                    }
+            //string op   =  User.getInstance().BR.ReadStringIgnoreNull();
+            //if (op == "6")
+            //{
 
-                }
 
-            }
+            //    if (User.getInstance().ns.CanRead)
+            //    {
+            //        string z = User.getInstance().BR.ReadStringIgnoreNull();
+            //        string w = User.getInstance().BR.ReadStringIgnoreNull();
+            //        string c = User.getInstance().BR.ReadStringIgnoreNull();
+            //        if (x.ToString() != z && y.ToString() != w &&  c != cl.ToString())
+            //        {
+            //            MessageBox.Show("error");
+
+                            
+            //        }
+            //        else
+            //        {
+                  
+            //            repaintBord();
+            //        }
+                    
+
+            //    }
+
+            //}
 
         }
 

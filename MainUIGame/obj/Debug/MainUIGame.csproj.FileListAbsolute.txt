@@ -14,7 +14,6 @@ C:\Users\Youssef\Source\Repos\The-Magnificent-Six\ConnectFour\MainUIGame\bin\Deb
 C:\Users\Youssef\Source\Repos\The-Magnificent-Six\ConnectFour\MainUIGame\bin\Debug\MainUIGame.pdb
 C:\Users\Youssef\Source\Repos\The-Magnificent-Six\ConnectFour\MainUIGame\obj\Debug\MainUIGame.csproj.AssemblyReference.cache
 C:\Users\Youssef\Source\Repos\The-Magnificent-Six\ConnectFour\MainUIGame\obj\Debug\MainUIGame.csproj.SuggestedBindingRedirects.cache
-C:\Users\Youssef\Source\Repos\The-Magnificent-Six\ConnectFour\MainUIGame\obj\Debug\MainUIGame.Login.resources
 C:\Users\Youssef\Source\Repos\The-Magnificent-Six\ConnectFour\MainUIGame\obj\Debug\MainUIGame.Properties.Resources.resources
 C:\Users\Youssef\Source\Repos\The-Magnificent-Six\ConnectFour\MainUIGame\obj\Debug\MainUIGame.csproj.GenerateResource.cache
 C:\Users\Youssef\Source\Repos\The-Magnificent-Six\ConnectFour\MainUIGame\obj\Debug\MainUIGame.csproj.CoreCompileInputs.cache
@@ -49,3 +48,4 @@ C:\Users\Window's-10\Source\Repos\Connect4 fin\MainUIGame\obj\Debug\MainUIGame.e
 C:\Users\Youssef\Source\Repos\The-Magnificent-Six\ConnectFour\MainUIGame\obj\Debug\MainUIGame.CreateDialog.resources
 C:\Users\Youssef\Source\Repos\The-Magnificent-Six\ConnectFour\MainUIGame\obj\Debug\MainUIGame.dialog.resources
 C:\Users\Youssef\Source\Repos\The-Magnificent-Six\ConnectFour\MainUIGame\obj\Debug\MainUIGame.Lobby.resources
+C:\Users\Youssef\Source\Repos\The-Magnificent-Six\ConnectFour\MainUIGame\obj\Debug\MainUIGame.Login.resources

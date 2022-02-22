@@ -29,7 +29,6 @@ namespace MainUIGame
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.C4Logo = new System.Windows.Forms.PictureBox();
@@ -47,42 +46,38 @@ namespace MainUIGame
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Bauhaus 93", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(50)))), ((int)(((byte)(160)))));
-            this.label1.Location = new System.Drawing.Point(24, 260);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(16, 169);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(322, 45);
+            this.label1.Size = new System.Drawing.Size(259, 36);
             this.label1.TabIndex = 1;
             this.label1.Text = "Enter Your Name";
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(33, 368);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pictureBox1.Image = global::MainUIGame.Properties.Resources.images__3_;
+            this.pictureBox1.Location = new System.Drawing.Point(22, 239);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(33, 35);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.Size = new System.Drawing.Size(22, 23);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             // 
             // C4Logo
             // 
-            this.C4Logo.Image = ((System.Drawing.Image)(resources.GetObject("C4Logo.Image")));
-            this.C4Logo.Location = new System.Drawing.Point(124, 35);
-            this.C4Logo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.C4Logo.Image = global::MainUIGame.Properties.Resources.images;
+            this.C4Logo.Location = new System.Drawing.Point(83, 23);
             this.C4Logo.Name = "C4Logo";
-            this.C4Logo.Size = new System.Drawing.Size(183, 152);
-            this.C4Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.C4Logo.Size = new System.Drawing.Size(122, 99);
+            this.C4Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.C4Logo.TabIndex = 0;
             this.C4Logo.TabStop = false;
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(50)))), ((int)(((byte)(160)))));
-            this.panel1.Location = new System.Drawing.Point(33, 406);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.panel1.Location = new System.Drawing.Point(22, 264);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(354, 2);
+            this.panel1.Size = new System.Drawing.Size(236, 1);
             this.panel1.TabIndex = 3;
             // 
             // btnLogin
@@ -92,10 +87,9 @@ namespace MainUIGame
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogin.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.ForeColor = System.Drawing.Color.White;
-            this.btnLogin.Location = new System.Drawing.Point(33, 517);
-            this.btnLogin.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnLogin.Location = new System.Drawing.Point(22, 336);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(354, 51);
+            this.btnLogin.Size = new System.Drawing.Size(236, 33);
             this.btnLogin.TabIndex = 4;
             this.btnLogin.Text = "LET\'S Play !";
             this.btnLogin.UseVisualStyleBackColor = false;
@@ -106,10 +100,9 @@ namespace MainUIGame
             this.Clearfield.AutoSize = true;
             this.Clearfield.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Clearfield.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(50)))), ((int)(((byte)(160)))));
-            this.Clearfield.Location = new System.Drawing.Point(267, 457);
-            this.Clearfield.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Clearfield.Location = new System.Drawing.Point(178, 297);
             this.Clearfield.Name = "Clearfield";
-            this.Clearfield.Size = new System.Drawing.Size(95, 20);
+            this.Clearfield.Size = new System.Drawing.Size(79, 16);
             this.Clearfield.TabIndex = 5;
             this.Clearfield.Text = "ClearField";
             this.Clearfield.Click += new System.EventHandler(this.Clearfield_Click);
@@ -119,10 +112,9 @@ namespace MainUIGame
             this.Exit.AutoSize = true;
             this.Exit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Exit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(50)))), ((int)(((byte)(160)))));
-            this.Exit.Location = new System.Drawing.Point(177, 625);
-            this.Exit.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Exit.Location = new System.Drawing.Point(118, 406);
             this.Exit.Name = "Exit";
-            this.Exit.Size = new System.Drawing.Size(41, 20);
+            this.Exit.Size = new System.Drawing.Size(32, 16);
             this.Exit.TabIndex = 6;
             this.Exit.Text = "Exit";
             this.Exit.Click += new System.EventHandler(this.Exit_Click);
@@ -132,19 +124,18 @@ namespace MainUIGame
             this.UsrName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.UsrName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UsrName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(214)))));
-            this.UsrName.Location = new System.Drawing.Point(75, 368);
-            this.UsrName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.UsrName.Location = new System.Drawing.Point(50, 239);
             this.UsrName.Multiline = true;
             this.UsrName.Name = "UsrName";
-            this.UsrName.Size = new System.Drawing.Size(312, 37);
+            this.UsrName.Size = new System.Drawing.Size(208, 24);
             this.UsrName.TabIndex = 7;
             // 
             // Login
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(438, 688);
+            this.ClientSize = new System.Drawing.Size(292, 447);
             this.Controls.Add(this.UsrName);
             this.Controls.Add(this.Exit);
             this.Controls.Add(this.Clearfield);
@@ -154,7 +145,6 @@ namespace MainUIGame
             this.Controls.Add(this.label1);
             this.Controls.Add(this.C4Logo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
