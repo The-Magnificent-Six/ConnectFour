@@ -170,9 +170,6 @@ namespace ConnectFourServer
         {
             BinaryWriter bw = new BinaryWriter(netStream);
             bw.Write(r.name);
-            bw.Write(r.board.rows.ToString());
-            bw.Write(r.board.columns.ToString());
-
             if (r.isPlayersIncomplete())
             {
                 bw.Write("1");//num of players in room

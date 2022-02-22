@@ -35,9 +35,6 @@ namespace MainUIGame
         int player;
         //5)
 
-
-        public static int playerTurn;
-
         //SolidBrush player1;
         //SolidBrush player2;
 
@@ -50,23 +47,24 @@ namespace MainUIGame
         static Brush HostBrush;
         static Brush ChallangerBrush;
         public static GameBoard currntGameboard;
-        //     public static winORlose winandlose;
-
 
 
         public GameBoard()
         {
-            InitializeComponent();
-            this.boardcolumns = new Rectangle[columns];
-            this.board = new int[rows, columns];//x,y
-            HostBrush = new SolidBrush(HostColor);
-            HostColor = Color.FromName(User.getInstance().userColor.ToString());
-            ChallangerBrush = new SolidBrush(ChallangerColor);
-            currntGameboard = this;
+             InitializeComponent();
 
             mainlobby = this;
 
+            //1)
+            //2) 6 rows  by 7 colum 
+            // width , Heigth
+            //3)
 
+            //4)
+            // winner = this.winnerplayer(this.turn);
+            //5) player*color
+            //player1 = (SolidBrush)Brushes.Red;
+            //player2 = (SolidBrush)Brushes.DarkGreen;
 
             currntGameboard = this;
         }
@@ -82,7 +80,11 @@ namespace MainUIGame
             //HostBrush = new SolidBrush(Color.FromName(tokColor1.ToString));
 
         }
+        //public GameBoard(string RoomName, int rows, int cols ,int tokenColor2) : this(RoomName,rows,cols)
+        //{
+        //    ChallangerBrush = new SolidBrush(ChallangerColor);
 
+        //}
 
         public void repaintBord()
         {
@@ -100,13 +102,10 @@ namespace MainUIGame
                     {
                         g.FillEllipse(ChallangerBrush, 32 + 48 * j, 32 + 48 * i, 32, 32);
                     }
-                    else if (board[i, j] == 0)
-                    {
-                        g.FillEllipse(Brushes.White, 32 + 48 * j, 32 + 48 * i, 32, 32);
-                    }
 
                 }
             }
+
 
         }
 
@@ -115,7 +114,7 @@ namespace MainUIGame
             HostColor = Color.FromName(HostPlayerColor.ToString());
             HostBrush = new SolidBrush(HostColor);
         }
-        public void setChallangeColor(tokencolor challangePlayer)
+        public void setChallangeColor(tokencolor challangePlayer )
         {
             ChallangerColor = Color.FromName(challangePlayer.ToString());
             ChallangerBrush = new SolidBrush(ChallangerColor);
@@ -141,54 +140,146 @@ namespace MainUIGame
         }
 
         //Event of Mouseclick
-
+        
         private void Form1_MouseClick(object sender, MouseEventArgs e)
-        {
-            int columnIndex = this.columNumber(e.Location);
-            //validate to add
-            if (columnIndex != -1)
-            {
-                int rowindex = this.EmptyRow(columnIndex);
-                if (rowindex != -1)
+        {if (turn==1)
+            { int columnIndex = this.columNumber(e.Location);
+                //validate to add
+                if (columnIndex != -1)
                 {
-                    this.board[rowindex, columnIndex] = turn;  /// server 
-
-
-                    if (playerTurn == turn) //cuurnt player 
+                    int rowindex = this.EmptyRow(columnIndex);
+                    if (rowindex != -1)
                     {
+                        this.board[rowindex, columnIndex] = turn;  // server
+                                                                   //  user.SendServerRequest(Single.SendMove, columnIndex.ToString(), rowindex.ToString());
+
+                        if (turn == 1) //cuurnt player 
+                        {
+
+                            repaintBord();
 
 
-                        this.SendServerRequest();
 
+                        }
+
+
+                        else if (turn == 2)
+                        {
+
+                            repaintBord();
+
+                        }
+                        else if (turn == 3)
+                        {
+
+                            repaintBord();
+
+                        }
+
+
+                        //***************Winner***********
+                        int winner = this.winnerplayer(turn);
+
+                        if (winner != -1)//There is a winning player
+                        {
+
+                            if (winner == 1)
+                            {
+                                player = (int)User.getInstance().userColor;
+                            }
+                            else
+                            { player = (int)User.getInstance().userColor; }
+                            MessageBox.Show(player + "player has win");
+                        }
+
+                        // change 1=>2 && 2=>1
+                        if (turn == 1)
+                        {
+                            turn = 2;
+                        }
+                        else
+                        {
+                            turn = 1;
+                        }
 
                     }
-                    else if (playerTurn == 3)
+                }
+            }
+        }
+        // Winner conditions:
+        private int winnerplayer(int Checkplayer)
+        {
+            //1)Vertical
+            for (int row = 0; row < this.board.GetLength(0) - 3; row++)
+            {
+                for (int colum = 0; colum < this.board.GetLength(1); colum++)
+                {
+                    //check if the winner get 4 point vertically 
+                    if (this.AllNumber(Checkplayer, this.board[row, colum], this.board[row + 1, colum], this.board[row + 2, colum], this.board[row + 3, colum]))
                     {
-
-                        MessageBox.Show(" you are spectating the Game \n  you can't play");
-
+                        //if True
+                        return Checkplayer;
                     }
-                    else
+                }
+            }
+            //2)Horizontal
+            for (int row = 0; row < this.board.GetLength(0); row++)
+            {
+                for (int colum = 0; colum < this.board.GetLength(1) - 3; colum++)
+                {
+                    //check if the winner get 4 point Horizontal 
+                    if (this.AllNumber(Checkplayer, this.board[row, colum], this.board[row, colum + 1], this.board[row, colum + 2], this.board[row, colum + 3]))
                     {
-                        ;
-                        MessageBox.Show(" That is not your turn please \n wait for the Other player Move ");
-
+                        //if True
+                        return Checkplayer;
                     }
-
-
-                   
-
-
-                    //private void GameBoard_FormClosing(object sender, FormClosingEventArgs e)
-                    //{
-                    //    Lobby.mainlobby.Show();
-                    //}
+                }
+            }
+            //3)top-left diagonal(\)
+            for (int row = 0; row < this.board.GetLength(0) - 3; row++)
+            {
+                for (int colum = 0; colum < this.board.GetLength(1) - 3; colum++)
+                {
+                    //check if the winner get 4 point Horizontal 
+                    if (this.AllNumber(Checkplayer, this.board[row, colum], this.board[row + 1, colum + 1], this.board[row + 2, colum + 2], this.board[row + 3, colum + 3]))
+                    {
+                        //if True
+                        return Checkplayer;
+                    }
+                }
+            }
+            //4)top-right diagonal(/)
+            for (int row = 0; row < this.board.GetLength(0) - 3; row++)
+            {
+                for (int colum = 3; colum < this.board.GetLength(1); colum++)
+                {
+                    //check if the winner get 4 point Horizontal 
+                    if (this.AllNumber(Checkplayer, this.board[row, colum], this.board[row + 1, colum - 1], this.board[row + 2, colum - 2], this.board[row + 3, colum - 3]))
+                    {
+                        //if True
+                        return Checkplayer;
+                    }
                 }
             }
 
+            return -1;
+        }
+        //function to check all number is checked 
+        private bool AllNumber(int tocheck, params int[] numbers)
+        {
+            foreach (int num in numbers)
+            {
+                if (num != tocheck) //check if the player get 4 point 
+                {
+                    return false;
+                }
+            }
+            return true;
         }
 
-        int columNumber(Point mouse)
+        //function 
+
+        private int columNumber(Point mouse)
         {
             for (int i = 0; i < this.boardcolumns.Length; i++)
             {
@@ -205,7 +296,7 @@ namespace MainUIGame
             return -1;
         }
         // ***************fill empty row*****************
-        int EmptyRow(int col)
+        private int EmptyRow(int col)
         {
             // check if valid to add or no
             for (int i = rows - 1; i >= 0; i--) //(start add from lowest one to highest one)
@@ -219,8 +310,6 @@ namespace MainUIGame
             return -1;
 
         }
-
-
         public void SendServerRequest()
         {
 
@@ -230,47 +319,48 @@ namespace MainUIGame
             User.getInstance().BW.Write(y.ToString());
             int cl = (int)User.getInstance().userColor;
             User.getInstance().BW.Write(cl.ToString());
-            string op = User.getInstance().BR.ReadStringIgnoreNull();
+       string op   =  User.getInstance().BR.ReadStringIgnoreNull();
             if (op == "6")
             {
-
-                if (User.getInstance().ns.CanRead)
+                while (true)
                 {
-                    string z = User.getInstance().BR.ReadStringIgnoreNull();
-                    string w = User.getInstance().BR.ReadStringIgnoreNull();
-                    string c = User.getInstance().BR.ReadStringIgnoreNull();
-                    if (x.ToString() != z && y.ToString() != w && c != cl.ToString())
+                    if (User.getInstance().ns.CanRead)
                     {
-                        MessageBox.Show("error");
-
-
+                        string z = User.getInstance().BR.ReadStringIgnoreNull();
+                        string w = User.getInstance().BR.ReadStringIgnoreNull();
+                        string c = User.getInstance().BR.ReadStringIgnoreNull();
+                        if (x.ToString() == z && y.ToString() == w && c == cl.ToString())
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            MessageBox.Show("error");
+                        }
                     }
-                    else
-                    {
-
-                        repaintBord();
-                    }
-
 
                 }
 
             }
 
         }
-    }
 
-    public class Player
-    {
-        public string Name { get; }
-        public Color PlayerColor { get; set; }
-
-        public Player(string name)
+        public class Player
         {
-            Name = name;
+            public string Name { get; }
+            public Color PlayerColor { get; set; }
 
+            public Player(string name)
+            {
+                Name = name;
+
+            }
+
+
+            //private void GameBoard_FormClosing(object sender, FormClosingEventArgs e)
+            //{
+            //    Lobby.mainlobby.Show();
+            //}
         }
-
     }
 }
-           
-  

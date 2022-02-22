@@ -13,10 +13,3 @@ C:\Users\Youssef\Source\Repos\The-Magnificent-Six\ConnectFour\ConnectFourServer\
 C:\Users\Youssef\Source\Repos\The-Magnificent-Six\ConnectFour\ConnectFourServer\obj\Debug\ConnectFourServer.csproj.CoreCompileInputs.cache
 C:\Users\Youssef\Source\Repos\The-Magnificent-Six\ConnectFour\ConnectFourServer\obj\Debug\ConnectFourServer.exe
 C:\Users\Youssef\Source\Repos\The-Magnificent-Six\ConnectFour\ConnectFourServer\obj\Debug\ConnectFourServer.pdb
-D:\game\connect4\ConnectFourServer\bin\Debug\ConnectFourServer.exe.config
-D:\game\connect4\ConnectFourServer\bin\Debug\ConnectFourServer.exe
-D:\game\connect4\ConnectFourServer\bin\Debug\ConnectFourServer.pdb
-D:\game\connect4\ConnectFourServer\obj\Debug\ConnectFourServer.csprojAssemblyReference.cache
-D:\game\connect4\ConnectFourServer\obj\Debug\ConnectFourServer.csproj.CoreCompileInputs.cache
-D:\game\connect4\ConnectFourServer\obj\Debug\ConnectFourServer.exe
-D:\game\connect4\ConnectFourServer\obj\Debug\ConnectFourServer.pdb
