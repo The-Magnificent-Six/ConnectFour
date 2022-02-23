@@ -147,6 +147,12 @@ namespace ConnectFourServer
             bw.Write(((int)commOp.error).ToString());
             bw.Write(v);
         }
+        public void sendDraw()
+        {
+            BinaryWriter writer = new BinaryWriter(networkStream);
+            writer.Write(((int)commOp.winLoss).ToString());
+            writer.Write("Draw");
+        }
 
         public void setName(string name)
         {

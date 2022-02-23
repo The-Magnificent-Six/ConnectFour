@@ -133,10 +133,6 @@ namespace MainUIGame
                         gb.Show();
                         this.Close();
                         MessageBox.Show("Please hold for the other player to connect sir ... ");
-                        Task.Factory.StartNew((board) => { ((GameBoard)board).ListenForServerMove(); }, gb);//thread board from thid
-
-
-
                     }
                     else if (cdlg.op == "-1")
                     {
@@ -186,8 +182,7 @@ namespace MainUIGame
                         newlistbox[btn.TabIndex].Items.Clear();
                         newlistbox[btn.TabIndex].Items.Add("2 players");
                         this.Close();
-                        Task.Factory.StartNew((board) => { ((GameBoard)board).ListenForServerMove(); }, gb);//thread board from thid
-
+                        
 
                     }
 
@@ -278,17 +273,12 @@ namespace MainUIGame
                         {
                             for (int j = 0; j < col; j++)
                             {
-                                gameSpectate.board[i, j] = int.Parse(User.getInstance().BR.ReadStringIgnoreNull());
+                                gameSpectate.board[i, j] = (tokencolor)int.Parse(User.getInstance().BR.ReadStringIgnoreNull());
                             }
                         }
                         gameSpectate.Show();
                         this.Close();
-                        Task.Factory.StartNew((board) => { ((GameBoard)board).ListenForServerMove(); }, gameSpectate);//thread board from thid
-
-
-
-
-
+                        
                     }
                     else if (serverRes == -1)
                     {

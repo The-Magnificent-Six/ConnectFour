@@ -9,7 +9,8 @@ namespace ConnectFourServer
     class Board
     {
         public int[,] matrix;
-        public int rows, columns;
+        public int rows, columns, noMoves = 0;
+        public bool checkDrawCondition { get => (noMoves == rows * columns); }
 
         public Board(int rows, int columns)
         {
@@ -99,10 +100,12 @@ namespace ConnectFourServer
                 
             return false;
         }
+
         public bool play(int x, int y , int TokenColor)
         {
+            noMoves++;
             matrix[x,y] = TokenColor;
-            return checkWinCondition(x, y,TokenColor);
+            return checkWinCondition(x, y, TokenColor) || checkDrawCondition ;
         }
     }
 }

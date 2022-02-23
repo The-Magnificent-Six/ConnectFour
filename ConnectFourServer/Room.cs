@@ -27,19 +27,32 @@ namespace ConnectFourServer
 
         public bool makeAMove(int x , int y,Player p)
         {
-            bool someOneWon = board.play(x,y,p.TokenColor);
+            bool GameOver = board.play(x,y,p.TokenColor);
             broadcastMove(x,y,p);
-            if(someOneWon)
-                broadcastWin(p);
-            return someOneWon;
+            if (GameOver)
+            {
+                if (board.checkDrawCondition)
+                    broadcastDraw();
+                else
+                    broadcastWin(p);
+            }
+            return GameOver;
+        }
+
+        private void broadcastDraw()
+        {
+            foreach (Player player in players)
+                player.sendDraw();
+            foreach (Spectator spectator in spectators)
+                spectator.sendDraw();
         }
 
         void broadcastWin(Player p)
         {
                 p.sendWinToPlayer();
                 foreach (Player player in players)
-                    if (player.TokenColor != p.TokenColor)
-                        p.sendLossToPlayer();
+                    if (player != p)
+                        player.sendLossToPlayer();
                 foreach (Spectator spectator in spectators)
                         spectator.sendPlayerXWon(p);
         }
