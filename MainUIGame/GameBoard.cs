@@ -123,7 +123,7 @@ namespace MainUIGame
 
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
-            e.Graphics.FillRectangle(Brushes.Blue, 24, 24, columns * 48, rows * 48);
+            e.Graphics.FillRectangle(Brushes.Silver, 24, 24, columns * 48, rows * 48);
 
             for (int i = 0; i < rows; i++)//x
             {
