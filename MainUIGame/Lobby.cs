@@ -51,7 +51,7 @@ namespace MainUIGame
         public Lobby()
         {
             InitializeComponent();
-            User.getInstance().username = lb;
+           
             this.WindowState = FormWindowState.Maximized;
             log = new Login();
 
@@ -208,6 +208,7 @@ namespace MainUIGame
         private void Form1_Load(object sender, EventArgs e)
         {
             EXrooms();
+            User.getInstance().username = lb;
         }
 
         private void Timer1_Tick(object sender, EventArgs e)

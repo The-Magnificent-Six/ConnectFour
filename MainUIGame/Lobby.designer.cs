@@ -42,10 +42,9 @@ namespace MainUIGame
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.BackColor = System.Drawing.Color.Black;
             this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button1.Location = new System.Drawing.Point(498, 235);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
+            this.button1.Location = new System.Drawing.Point(747, 362);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(111, 46);
+            this.button1.Size = new System.Drawing.Size(166, 71);
             this.button1.TabIndex = 0;
             this.button1.Text = "Create Room";
             this.button1.UseVisualStyleBackColor = false;
@@ -56,8 +55,9 @@ namespace MainUIGame
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.Image = global::MainUIGame.Properties.Resources.WhatsApp_Image_2022_02_06_at_11_23_46_AM__2_;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(261, 66);
+            this.pictureBox1.Size = new System.Drawing.Size(391, 109);
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
             // 
@@ -68,12 +68,12 @@ namespace MainUIGame
             this.label1.BackColor = System.Drawing.SystemColors.ControlText;
             this.label1.Font = new System.Drawing.Font("Microsoft Uighur", 27.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.label1.Location = new System.Drawing.Point(481, 0);
+            this.label1.Location = new System.Drawing.Point(722, 0);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label1.Size = new System.Drawing.Size(128, 49);
+            this.label1.Size = new System.Drawing.Size(0, 73);
             this.label1.TabIndex = 7;
-            this.label1.Text = "waad amir";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // timer1
@@ -83,15 +83,14 @@ namespace MainUIGame
             // 
             // Lobby
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::MainUIGame.Properties.Resources.WhatsApp_Image_2022_02_06_at_11_233;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(609, 279);
+            this.ClientSize = new System.Drawing.Size(914, 429);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button1);
-            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Lobby";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);

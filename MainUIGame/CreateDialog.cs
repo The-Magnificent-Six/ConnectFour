@@ -28,7 +28,25 @@ namespace MainUIGame
             RomeName = textBox1.Text;
             RowNo = textBox2.Text;
             ColNo = textBox3.Text;
-            TokenCol= (tokencolor)comboBox1.SelectedIndex;
+
+            String Col = comboBox1.SelectedItem.ToString();
+            switch (Col)
+            {
+                case "Red":
+                    TokenCol = tokencolor.Red;
+                    break;
+                case "Blue":
+                    TokenCol = tokencolor.Blue;
+                    break;
+                case "Green":
+                    TokenCol = tokencolor.Green;
+                    break;
+                case "Violet":
+                    TokenCol = tokencolor.Violet;
+                    break;
+
+            }
+
             User.getInstance().userColor =TokenCol; 
             User.getInstance().BW.Write("2");
             User.getInstance().BW.Write(((int)TokenCol).ToString());

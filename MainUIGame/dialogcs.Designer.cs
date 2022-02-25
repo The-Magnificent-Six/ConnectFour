@@ -61,7 +61,7 @@ namespace MainUIGame
             "Red",
             "Blue",
             "Green",
-            "Vilolet"});
+            "Violet"});
             this.comboBox1.Location = new System.Drawing.Point(225, 58);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 28);
