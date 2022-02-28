@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.IO;
 using System.Threading.Tasks;
 
 namespace ConnectFourServer
@@ -32,9 +33,15 @@ namespace ConnectFourServer
             if (GameOver)
             {
                 if (board.checkDrawCondition)
+                {
                     broadcastDraw();
+                    saveToFile(null);
+                }
                 else
+                {
                     broadcastWin(p);
+                    saveToFile(p.name);
+                }
             }
             return GameOver;
         }
@@ -90,6 +97,46 @@ namespace ConnectFourServer
         {
             spectators.Add(s);
             //s.sendRoomDetails(this);
+        }
+        private void saveToFile(string winnerName)
+        {
+            List<string> buffer_ = new List<string>();
+            buffer_.Add("room : " + this.name);
+
+            buffer_.Add("\n");
+
+            if (winnerName != null)
+                buffer_.Add("winner : " + winnerName);
+            else
+                buffer_.Add("Draw");
+
+            buffer_.Add("\n");
+
+            buffer_.Add("number of rows : " + this.board.rows);
+            buffer_.Add("number of columns : " + this.board.columns);
+
+            buffer_.Add("\n");
+
+            for (int i = 0; i < 2; i++)
+                buffer_.Add($"player {i+1} name : {this.players[i].name} : color : {this.players[i].TokenColor} ");
+
+            buffer_.Add("\n");
+
+            buffer_.Add("Boad : ");
+
+            buffer_.Add("\n");
+
+            for (int row_ = 0; row_ < this.board.rows; row_++)
+            {
+                string rowString = "";
+                for (int col_ = 0; col_ < this.board.columns ; col_++)
+                    rowString += this.board.matrix[row_, col_].ToString() + " ";
+                
+                buffer_.Add(rowString);
+            }
+
+
+            File.WriteAllLines($"{this.players[0].name}_vs_{this.players[1].name}.txt", buffer_);
         }
 
     }
