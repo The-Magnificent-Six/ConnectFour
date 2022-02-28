@@ -1,0 +1,23 @@
+room : beitJoe
+
+
+winner : joe
+
+
+number of rows : 6
+number of columns : 7
+
+
+player 1 name : joe : color : 2 
+player 2 name : sam : color : 4 
+
+
+Boad : 
+
+
+0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 
+0 0 0 2 0 0 0 
+0 0 0 2 0 0 0 
+0 4 0 2 0 0 0 
+0 4 4 2 4 0 0 
