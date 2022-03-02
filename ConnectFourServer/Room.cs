@@ -42,6 +42,38 @@ namespace ConnectFourServer
                     broadcastWin(p);
                     saveToFile(p.name);
                 }
+
+                //broadcastrematch
+                //Task<bool>[] willRematch = new Task<bool>[2];
+
+                //for (int i = 0; i < 2; i++)
+                //{
+                //    willRematch[i] = players[i].acceptRematch();
+                //    willRematch[i].RunSynchronously();
+                //}
+
+
+                //bool accept_ = true;
+
+                //for (int i = 0; i < 2; i++)
+                //    accept_ &= willRematch[i].Result;
+
+                //if (accept_)
+                //{
+                //    board.reset();
+
+                //    Player playerWithTurn;
+
+                //    if (p == Players[0])
+                //        playerWithTurn = Players[1];
+                //    else
+                //        playerWithTurn = Players[0];
+
+                //    playerWithTurn.WaitForMove();
+                //}
+
+
+                Program.rooms.Remove(this);
             }
             return GameOver;
         }
@@ -82,21 +114,10 @@ namespace ConnectFourServer
         public void addPlayer(Player p)
         {
             players[1] = p;
-            // if(isPlayersIncomplete())
-            // {
-                // players[1] = p;
-                // players[1].room = this;
-                //p.sendRoomDetails(this);
-            // }
-            // else
-            // {
-
-            // }
         }
         public void addSpectator(Spectator s)
         {
             spectators.Add(s);
-            //s.sendRoomDetails(this);
         }
         private void saveToFile(string winnerName)
         {

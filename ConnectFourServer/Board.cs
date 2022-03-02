@@ -107,5 +107,10 @@ namespace ConnectFourServer
             matrix[x,y] = TokenColor;
             return checkWinCondition(x, y, TokenColor) || checkDrawCondition ;
         }
+        public void reset()
+        {
+            noMoves = 0;
+            matrix = new int[rows, columns];
+        }
     }
 }

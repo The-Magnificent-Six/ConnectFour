@@ -17,7 +17,8 @@ namespace ConnectFourServer
         playerMoveReq = 6, 
         roomsResp = 7,
         accept = 8,
-        winLoss = 9
+        winLoss = 9,
+        rematch = 10
 
     }
 }

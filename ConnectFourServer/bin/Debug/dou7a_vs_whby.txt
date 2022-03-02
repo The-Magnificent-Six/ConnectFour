@@ -1,0 +1,23 @@
+room : glym
+
+
+winner : dou7a
+
+
+number of rows : 6
+number of columns : 7
+
+
+player 1 name : dou7a : color : 3 
+player 2 name : whby : color : 4 
+
+
+Boad : 
+
+
+0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 
+0 0 0 0 3 0 0 
+0 0 0 0 3 0 0 
+0 0 4 4 3 0 0 
+0 4 4 4 3 3 0 

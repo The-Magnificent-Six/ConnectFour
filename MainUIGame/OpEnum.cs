@@ -13,11 +13,12 @@ namespace MainUIGame
         createRoomReq = 2,
         joinRoomAsPlayer = 3,
         joinRoomAsSpectator = 4,
-        getWholeBoard = 5,
+        WholeBoard = 5,
         playerMoveReq = 6,
         roomsResp = 7,
-        Accept = 8,
-        winLoss = 9
+        accept = 8,
+        winLoss = 9,
+        rematch = 10
 
     }
 }

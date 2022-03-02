@@ -1,0 +1,23 @@
+room : samr
+
+
+winner : joe
+
+
+number of rows : 6
+number of columns : 7
+
+
+player 1 name : sam : color : 1 
+player 2 name : joe : color : 2 
+
+
+Boad : 
+
+
+0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 
+0 0 0 2 0 0 0 
+0 0 0 2 0 0 0 
+0 0 0 2 0 0 0 
+0 1 1 2 1 0 0 

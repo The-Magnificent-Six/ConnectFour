@@ -8,8 +8,8 @@ using System.Threading.Tasks;
 
 namespace ConnectFourServer
 {
-    
-    class Player : User 
+
+    class Player : User
     {
         public Room room;
         int tokencolor;//must be different player ID
@@ -37,10 +37,14 @@ namespace ConnectFourServer
                         int TokenColor = int.Parse( reader.ReadStringIgnoreNull());
                         if (!room.makeAMove(x,y,this))
                         {
+                            Player playerWithTurn;
+
                             if(this == room.Players[0] )
-                                room.Players[1].WaitForMove();
-                            else 
-                                room.Players[0].WaitForMove();
+                                playerWithTurn = room.Players[1];
+                            else
+                                playerWithTurn = room.Players[0];
+
+                            Task.Factory.StartNew((playerWTurn) => { ((Player)playerWTurn).WaitForMove(); }, playerWithTurn);
                         }
                         else
                             return;
@@ -75,5 +79,28 @@ namespace ConnectFourServer
             bw.Write(((int)commOp.winLoss).ToString());
             bw.Write("you were outmatched sir");
         }
+
+        public async Task<bool> acceptRematch()
+        {
+            while (true)
+            {
+                if (networkStream.CanRead)
+                {
+                    BinaryReader reader = new BinaryReader(networkStream);
+                    commOp op = (commOp)int.Parse(reader.ReadStringIgnoreNull());
+                    if (op == commOp.rematch)
+                    {
+                        int accept = int.Parse(reader.ReadStringIgnoreNull());
+                        return accept == 1 ;
+
+                    }
+                    else
+                        throw new Exception("wrong op");
+                }
+            }
+            
+        }
+
     }
+
 }
