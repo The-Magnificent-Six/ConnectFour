@@ -32,45 +32,46 @@ namespace ConnectFourServer
             broadcastMove(x,y,p);
             if (GameOver)
             {
-                if (board.checkDrawCondition)
-                {
-                    broadcastDraw();
-                    saveToFile(null);
-                }
-                else
+                if (board.checkWinCondition)
                 {
                     broadcastWin(p);
                     saveToFile(p.name);
                 }
+                else if (board.checkDrawCondition)
+                {
+                    broadcastDraw();
+                    saveToFile(null);
+                }
 
                 //broadcastrematch
-                //Task<bool>[] willRematch = new Task<bool>[2];
+                Task<bool>[] willRematch = new Task<bool>[2];
 
-                //for (int i = 0; i < 2; i++)
-                //{
-                //    willRematch[i] = players[i].acceptRematch();
-                //    willRematch[i].RunSynchronously();
-                //}
+                for (int i = 0; i < 2; i++)
+                {
+                    willRematch[i] = players[i].acceptRematch();
+                    //willRematch[i].Start();
+                }
 
 
-                //bool accept_ = true;
+                bool accept_ = true;
 
-                //for (int i = 0; i < 2; i++)
-                //    accept_ &= willRematch[i].Result;
+                for (int i = 0; i < 2; i++)
+                    accept_ &= willRematch[i].Result;
 
-                //if (accept_)
-                //{
-                //    board.reset();
+                if (accept_)
+                {
+                    board.reset();
 
-                //    Player playerWithTurn;
+                    //Player playerWithTurn;
 
-                //    if (p == Players[0])
-                //        playerWithTurn = Players[1];
-                //    else
-                //        playerWithTurn = Players[0];
+                    //if (p == Players[0])
+                    //    playerWithTurn = Players[1];
+                    //else
+                    //    playerWithTurn = Players[0];
 
-                //    playerWithTurn.WaitForMove();
-                //}
+                    //playerWithTurn.WaitForMove();
+                    p.WaitForMove();
+                }
 
 
                 Program.rooms.Remove(this);

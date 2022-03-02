@@ -1,0 +1,23 @@
+room : s
+
+
+winner : Guest
+
+
+number of rows : 6
+number of columns : 7
+
+
+player 1 name : Guest : color : 2 
+player 2 name : Guest : color : 3 
+
+
+Boad : 
+
+
+0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 
+0 0 0 0 2 2 2 
+0 0 0 3 3 3 3 

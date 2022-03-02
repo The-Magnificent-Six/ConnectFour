@@ -1,0 +1,23 @@
+room : r1
+
+
+winner : papers
+
+
+number of rows : 6
+number of columns : 7
+
+
+player 1 name : joe : color : 1 
+player 2 name : papers : color : 3 
+
+
+Boad : 
+
+
+0 0 0 0 0 0 0 
+0 0 0 0 0 0 0 
+0 0 0 3 0 0 0 
+0 0 3 3 0 0 0 
+1 3 1 1 1 0 0 
+3 1 3 1 3 3 1 

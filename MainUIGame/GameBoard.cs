@@ -228,8 +228,22 @@ namespace MainUIGame
                     }
                     else if (Op == commOp.winLoss)
                     {
-                        MessageBox.Show(u.BR.ReadStringIgnoreNull());
-                        break;
+                        var rematchMb = MessageBox.Show(u.BR.ReadStringIgnoreNull()+"\n care to try again ?" , "rematch", MessageBoxButtons.YesNo);
+
+                        if (rematchMb == DialogResult.Yes)
+                        {
+                            u.BW.Write(((int)commOp.rematch).ToString());
+                            u.BW.Write("1");
+                            board = new tokencolor[rows, columns];
+                            repaintBord();
+                        }
+                        else
+                        {
+                            u.BW.Write(((int)commOp.rematch).ToString());
+                            u.BW.Write("0");
+                            break;
+
+                        }
                     }
                     else
                     {

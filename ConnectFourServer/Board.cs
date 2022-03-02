@@ -11,7 +11,8 @@ namespace ConnectFourServer
         public int[,] matrix;
         public int rows, columns, noMoves = 0;
         public bool checkDrawCondition { get => (noMoves == rows * columns); }
-
+        private bool win_ = false;
+        public bool checkWinCondition { get => win_; }
         public Board(int rows, int columns)
         {
             this.rows = rows;
@@ -19,7 +20,7 @@ namespace ConnectFourServer
             matrix = new int[rows, columns];
         }
 
-        private bool checkWinCondition(int x, int y, int TokenColor,int connect = 4)
+        private bool checkGameOver(int x, int y, int TokenColor,int connect = 4)
         {
             int i,j,count = -1;
             
@@ -105,11 +106,13 @@ namespace ConnectFourServer
         {
             noMoves++;
             matrix[x,y] = TokenColor;
-            return checkWinCondition(x, y, TokenColor) || checkDrawCondition ;
+            win_ = checkGameOver(x, y, TokenColor);
+            return  win_ || checkDrawCondition ;
         }
         public void reset()
         {
             noMoves = 0;
+            win_ = false;
             matrix = new int[rows, columns];
         }
     }
