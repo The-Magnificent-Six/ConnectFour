@@ -44,7 +44,7 @@ namespace MainUIGame
             else
             {
                 s = "Guest";
-                MessageBox.Show("Please enter a correct password or usernam");     
+                  
 
             }
             Lobby lob = new Lobby();

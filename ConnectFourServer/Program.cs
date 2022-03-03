@@ -21,7 +21,7 @@ namespace ConnectFourServer
             //then wait for a flag response of either new room , join room , spectate 
             //followed by the op details
 
-            Byte[] bt = new byte[] {127,0,0,1 };
+            Byte[] bt = new byte[] { 172, 16, 13, 113 };
             IPAddress localHost = new IPAddress(bt);
             server = new TcpListener(localHost, 3000);
             server.Start(); 

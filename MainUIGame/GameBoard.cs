@@ -54,7 +54,7 @@ namespace MainUIGame
              InitializeComponent();
             HostColor = Color.FromName(User.getInstance().userColor.ToString());
             mainlobby = this;
-
+            Control.CheckForIllegalCrossThreadCalls = false;
             //1)
             //2) 6 rows  by 7 colum 
             // width , Heigth
@@ -228,7 +228,18 @@ namespace MainUIGame
                     }
                     else if (Op == commOp.winLoss)
                     {
-                        var rematchMb = MessageBox.Show(u.BR.ReadStringIgnoreNull()+"\n care to try again ?" , "rematch", MessageBoxButtons.YesNo);
+                        if (turn == 3)
+                        {
+                            var watchRematch = MessageBox.Show(u.BR.ReadStringIgnoreNull() + "\nwanna continue spectating ?", "continue to spectate", MessageBoxButtons.YesNo);
+                            if (watchRematch == DialogResult.Yes)
+                            {
+                                continue;
+                            }
+                            else
+                            {
+                                Application.Exit();
+                            }
+                            var rematchMb = MessageBox.Show(u.BR.ReadStringIgnoreNull()+"\ncare to try again ?" , "rematch", MessageBoxButtons.YesNo);
 
                         if (rematchMb == DialogResult.Yes)
                         {
@@ -249,12 +260,13 @@ namespace MainUIGame
                                 else
                                 {
                                     MessageBox.Show("player 1 Rejected");
-                                    u.restartConnection();
-                                    Lobby lob = new Lobby();
-                                    lob.lb = u.username;
-                                    lob.Show();
+                                    //u.restartConnection();
+                                    //Lobby lob = new Lobby();
+                                    //lob.lb = u.username;
+                                    //lob.Show();
                                     //this.Close();
-                                    
+                                    Application.Exit();
+
                                     return;
                                 }
                             }
@@ -264,14 +276,14 @@ namespace MainUIGame
                             u.BW.Write(((int)commOp.rematch).ToString());
                             u.BW.Write("0");
 
-                            u.restartConnection();
+                            //u.restartConnection();
 
-                            Lobby lob = new Lobby();
-                            lob.lb = u.username;
-                            lob.Show();
+                            //Lobby lob = new Lobby();
+                            //lob.lb = u.username;
+                            //lob.Show();
                             //this.Close();  
-                           
-                           
+
+                            Application.Exit();
                             return;
 
                         }

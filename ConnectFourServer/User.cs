@@ -40,10 +40,7 @@ namespace ConnectFourServer
                         case commOp.availRoomsReq:
                             sendRooms();
                             break;
-
-
-                        case commOp.createRoomReq:
-                            
+                        case commOp.createRoomReq:                            
                             int tokenColor_ = int.Parse( reader.ReadStringIgnoreNull());
                             int rows_= int.Parse( reader.ReadStringIgnoreNull());
                             int cols_= int.Parse( reader.ReadStringIgnoreNull());
@@ -66,11 +63,7 @@ namespace ConnectFourServer
                             }
                             else
                                 sendError("room name is not unique");
-                            
-                            
                             break;
-
-
                         case commOp.joinRoomAsPlayer:
                             int tokenColor2_ = int.Parse( reader.ReadStringIgnoreNull());
                             string player2Name_ = reader.ReadStringIgnoreNull();
@@ -99,39 +92,22 @@ namespace ConnectFourServer
                                 p2.WaitForMove();
                                 return;
                             }
-
                             break;
-
-
-                        case commOp.joinRoomAsSpectator:
-                            
+                        case commOp.joinRoomAsSpectator:                            
                             string roomName = reader.ReadStringIgnoreNull();
-                            
                             Room joinIntoRoom = null;
-                           
                             foreach (Room r in Program.rooms)
                                 if (r.name == roomName)
                                     joinIntoRoom = r;
-                            
                             if (joinIntoRoom != null)
                             {
                                 Spectator s = new Spectator(this,joinIntoRoom);
                                 joinIntoRoom.addSpectator(s);
-                            
                                 return;
                             }
                             else
                                 sendError("no room by this name");
-
                             break;
-
-
-                        case 0:
-                            //nada
-                            Console.WriteLine("0 received");//law 7asal moshkela hena control chars
-                            break;
-
-
                         default:
                             throw new Exception("sth went horribly wrong XD");
                     }

@@ -27,3 +27,10 @@ C:\Users\Yousif\Source\Repos\The-Magnificent-Six\ConnectFour\ConnectFourServer\o
 C:\Users\Yousif\Source\Repos\The-Magnificent-Six\ConnectFour\ConnectFourServer\bin\Debug\ConnectFourServer.exe.config
 C:\Users\Yousif\Source\Repos\The-Magnificent-Six\ConnectFour\ConnectFourServer\bin\Debug\ConnectFourServer.exe
 C:\Users\Yousif\Source\Repos\The-Magnificent-Six\ConnectFour\ConnectFourServer\bin\Debug\ConnectFourServer.pdb
+C:\Users\Waad\Desktop\LastVersion\ConnectFourServer\bin\Debug\ConnectFourServer.exe.config
+C:\Users\Waad\Desktop\LastVersion\ConnectFourServer\bin\Debug\ConnectFourServer.exe
+C:\Users\Waad\Desktop\LastVersion\ConnectFourServer\bin\Debug\ConnectFourServer.pdb
+C:\Users\Waad\Desktop\LastVersion\ConnectFourServer\obj\Debug\ConnectFourServer.csproj.AssemblyReference.cache
+C:\Users\Waad\Desktop\LastVersion\ConnectFourServer\obj\Debug\ConnectFourServer.csproj.CoreCompileInputs.cache
+C:\Users\Waad\Desktop\LastVersion\ConnectFourServer\obj\Debug\ConnectFourServer.exe
+C:\Users\Waad\Desktop\LastVersion\ConnectFourServer\obj\Debug\ConnectFourServer.pdb
