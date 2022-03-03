@@ -232,13 +232,10 @@ namespace MainUIGame
                         {
                             var watchRematch = MessageBox.Show(u.BR.ReadStringIgnoreNull() + "\nwanna continue spectating ?", "continue to spectate", MessageBoxButtons.YesNo);
                             if (watchRematch == DialogResult.Yes)
-                            {
                                 continue;
-                            }
                             else
-                            {
                                 Application.Exit();
-                            }
+                        } 
                             var rematchMb = MessageBox.Show(u.BR.ReadStringIgnoreNull()+"\ncare to try again ?" , "rematch", MessageBoxButtons.YesNo);
 
                         if (rematchMb == DialogResult.Yes)
