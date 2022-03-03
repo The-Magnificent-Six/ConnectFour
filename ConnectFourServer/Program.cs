@@ -13,7 +13,19 @@ namespace ConnectFourServer
         static TcpListener server;
         static public List<Room> rooms = new List<Room>(); 
 
-        
+        public static IPAddress GetLocalIPAddress()
+        {
+            var host = Dns.GetHostEntry(Dns.GetHostName());
+            IPAddress ip_ = null;
+            foreach (var ip in host.AddressList)
+            {
+                if (ip.AddressFamily == AddressFamily.InterNetwork)
+                {
+                    ip_ = ip;
+                }
+            }
+            return ip_;
+        }
 
         static void Main(string[] args)
         {
@@ -23,7 +35,9 @@ namespace ConnectFourServer
 
             Byte[] bt = new byte[] { 172, 16, 13, 113 };
             IPAddress localHost = new IPAddress(bt);
-            server = new TcpListener(localHost, 3000);
+            IPAddress DynamicLocalHost = Program.GetLocalIPAddress();
+            server = new TcpListener(DynamicLocalHost, 3000);
+            Console.WriteLine(DynamicLocalHost.ToString());
             server.Start(); 
 
             Task serverTask = Task.Factory.StartNew( () =>{ 
