@@ -1,0 +1,24 @@
+room : R1
+
+
+winner : waad
+
+
+number of rows : 7
+number of columns : 6
+
+
+player 1 name : aliaa : color : 2 
+player 2 name : waad : color : 1 
+
+
+Boad : 
+
+
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 0 
+0 0 0 0 0 1 
+0 0 2 0 0 1 
+0 0 2 0 0 1 
+0 0 2 0 0 1 

@@ -128,6 +128,7 @@ namespace MainUIGame
                         GameBoard gb = new GameBoard(cdlg.RomeName,int.Parse(cdlg.RowNo), int.Parse(cdlg.ColNo));
                         GameBoard.turn= 2;
                         gb.setHostColor(cdlg.TokenCol);
+                        gb.Text = User.getInstance().username;
                         gb.Show();
                         this.Close();
                         MessageBox.Show("Please hold for the other player to connect sir ... ");
@@ -176,6 +177,7 @@ namespace MainUIGame
                         GameBoard gb = new GameBoard(rn, rw, cl);
                         GameBoard.turn = 1;
                         gb.setChallangeColor(dlg.Col) ;
+                        gb.Text = User.getInstance().username;
                         gb.Show();
                         newlistbox[btn.TabIndex].Items.Clear();
                         newlistbox[btn.TabIndex].Items.Add("2 players");

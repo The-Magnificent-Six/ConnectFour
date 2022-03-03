@@ -18,7 +18,7 @@ namespace MainUIGame
         public TcpClient client;
         public BinaryReader BR;
         public BinaryWriter BW;
-        public byte[] bt = new byte[] { 127, 0,0 , 1 };
+        public byte[] bt = new byte[] { 172,16 ,13 , 113 };
         private IPAddress serverIP;
         static User instance = null;
         

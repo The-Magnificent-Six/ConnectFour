@@ -75,3 +75,16 @@ C:\Users\Yousif\Source\Repos\The-Magnificent-Six\ConnectFour\MainUIGame\obj\Debu
 C:\Users\Yousif\Source\Repos\The-Magnificent-Six\ConnectFour\MainUIGame\obj\Debug\MainUIGame.exe
 C:\Users\Yousif\Source\Repos\The-Magnificent-Six\ConnectFour\MainUIGame\obj\Debug\MainUIGame.pdb
 C:\Users\Yousif\Source\Repos\The-Magnificent-Six\ConnectFour\MainUIGame\obj\Debug\MainUIGame.csproj.AssemblyReference.cache
+C:\Users\Waad\Desktop\LastVersion\MainUIGame\bin\Debug\MainUIGame.exe.config
+C:\Users\Waad\Desktop\LastVersion\MainUIGame\bin\Debug\MainUIGame.exe
+C:\Users\Waad\Desktop\LastVersion\MainUIGame\bin\Debug\MainUIGame.pdb
+C:\Users\Waad\Desktop\LastVersion\MainUIGame\obj\Debug\MainUIGame.csproj.AssemblyReference.cache
+C:\Users\Waad\Desktop\LastVersion\MainUIGame\obj\Debug\MainUIGame.CreateDialog.resources
+C:\Users\Waad\Desktop\LastVersion\MainUIGame\obj\Debug\MainUIGame.dialog.resources
+C:\Users\Waad\Desktop\LastVersion\MainUIGame\obj\Debug\MainUIGame.Lobby.resources
+C:\Users\Waad\Desktop\LastVersion\MainUIGame\obj\Debug\MainUIGame.Login.resources
+C:\Users\Waad\Desktop\LastVersion\MainUIGame\obj\Debug\MainUIGame.Properties.Resources.resources
+C:\Users\Waad\Desktop\LastVersion\MainUIGame\obj\Debug\MainUIGame.csproj.GenerateResource.cache
+C:\Users\Waad\Desktop\LastVersion\MainUIGame\obj\Debug\MainUIGame.csproj.CoreCompileInputs.cache
+C:\Users\Waad\Desktop\LastVersion\MainUIGame\obj\Debug\MainUIGame.exe
+C:\Users\Waad\Desktop\LastVersion\MainUIGame\obj\Debug\MainUIGame.pdb
