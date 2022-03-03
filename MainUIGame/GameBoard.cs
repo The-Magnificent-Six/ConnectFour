@@ -234,14 +234,45 @@ namespace MainUIGame
                         {
                             u.BW.Write(((int)commOp.rematch).ToString());
                             u.BW.Write("1");
-                            board = new tokencolor[rows, columns];
-                            repaintBord();
+                            commOp rematchresp =  (commOp)int.Parse(u.BR.ReadStringIgnoreNull());
+                            if(rematchresp == commOp.rematchResp)
+                            {
+                                int resp_ = int.Parse(u.BR.ReadStringIgnoreNull());
+
+                                if(resp_ > 0)
+                                {
+                                    board = new tokencolor[rows, columns];
+                                    repaintBord();
+                                    if(resp_ == 2)
+                                        turn = 1;
+                                }
+                                else
+                                {
+                                    MessageBox.Show("player 1 Rejected");
+                                    u.restartConnection();
+                                    Lobby lob = new Lobby();
+                                    lob.lb = u.username;
+                                    lob.Show();
+                                    //this.Close();
+                                    
+                                    return;
+                                }
+                            }
                         }
                         else
                         {
                             u.BW.Write(((int)commOp.rematch).ToString());
                             u.BW.Write("0");
-                            break;
+
+                            u.restartConnection();
+
+                            Lobby lob = new Lobby();
+                            lob.lb = u.username;
+                            lob.Show();
+                            //this.Close();  
+                           
+                           
+                            return;
 
                         }
                     }

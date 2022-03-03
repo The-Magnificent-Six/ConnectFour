@@ -24,12 +24,7 @@ namespace MainUIGame
         
         private User()
         {
-            serverIP = new IPAddress(bt);
-            client = new TcpClient();
-            client.Connect(serverIP, 3000);
-            ns = client.GetStream();
-            BR = new BinaryReader(ns);
-            BW = new BinaryWriter(ns);
+            restartConnection();
         }
         public static User getInstance()
         {
@@ -39,8 +34,18 @@ namespace MainUIGame
             }
             return instance;
         }
-      
-     
+        public void restartConnection()
+        {
+            serverIP = new IPAddress(bt);
+            client = new TcpClient();
+            client.Connect(serverIP, 3000);
+            ns = client.GetStream();
+            BR = new BinaryReader(ns);
+            BW = new BinaryWriter(ns);
+        }
+
+
+
 
     };
 

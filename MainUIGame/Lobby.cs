@@ -37,7 +37,6 @@ namespace MainUIGame
         string reqNo;
         Button btn;
         room[] availablerooms;
-        Login log;
 
 
       
@@ -53,7 +52,6 @@ namespace MainUIGame
             InitializeComponent();
            
             this.WindowState = FormWindowState.Maximized;
-            log = new Login();
 
             j = 0;
             x = 150;

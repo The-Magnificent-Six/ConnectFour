@@ -62,6 +62,25 @@ namespace ConnectFourServer
         {
             tokencolor = tokenColor;
         }
+
+        public void sendRejectRematch()
+        {
+            BinaryWriter bw = new BinaryWriter(netStream);
+            bw.Write(((int)commOp.rematchResp).ToString());
+            bw.Write("0");
+        }
+        public void sendAcceptRematch()
+        {
+            BinaryWriter bw = new BinaryWriter(netStream);
+            bw.Write(((int)commOp.rematchResp).ToString());
+            bw.Write("1");
+        }
+        public void sendHoldRematch()
+        {
+            BinaryWriter bw = new BinaryWriter(netStream);
+            bw.Write(((int)commOp.rematchResp).ToString());
+            bw.Write("2");
+        }
         public void setRoom( Room r )
         {
             room = r;

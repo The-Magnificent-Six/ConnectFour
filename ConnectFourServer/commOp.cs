@@ -18,7 +18,8 @@ namespace ConnectFourServer
         roomsResp = 7,
         accept = 8,
         winLoss = 9,
-        rematch = 10
+        rematch = 10,
+        rematchResp = 11
 
     }
 }

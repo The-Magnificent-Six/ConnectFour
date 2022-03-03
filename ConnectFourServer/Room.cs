@@ -53,28 +53,33 @@ namespace ConnectFourServer
                 }
 
 
-                bool accept_ = true;
+                bool[] accept_ = new bool[2];
 
                 for (int i = 0; i < 2; i++)
-                    accept_ &= willRematch[i].Result;
+                    accept_ [i] = willRematch[i].Result;
 
-                if (accept_)
+                if (accept_[0])
                 {
                     board.reset();
-
-                    //Player playerWithTurn;
-
-                    //if (p == Players[0])
-                    //    playerWithTurn = Players[1];
-                    //else
-                    //    playerWithTurn = Players[0];
-
-                    //playerWithTurn.WaitForMove();
-                    p.WaitForMove();
+                    if(accept_[1])
+                    {
+                        players[1].sendAcceptRematch();
+                        players[0].sendAcceptRematch();
+                        p.WaitForMove();
+                    }
+                    else
+                    {
+                        players[1] = null;
+                        players[0].sendHoldRematch();
+                    }
+                }
+                else
+                {
+                    Program.rooms.Remove(this);
+                    if(!accept_[0] && accept_[1] )
+                        players[1].sendRejectRematch();
                 }
 
-
-                Program.rooms.Remove(this);
             }
             return GameOver;
         }
